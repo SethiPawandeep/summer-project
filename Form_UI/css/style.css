@@ -250,6 +250,10 @@ div.float-left label {
         width: 300px;
         margin-left: -150px;
     }
+    #center-login {
+        width: 300px;
+        margin-left: -150px;
+    }
     input[type=range] {
         width: 210px;
     }

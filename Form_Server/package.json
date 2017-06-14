@@ -1,0 +1,21 @@
+{
+  "name": "form-server",
+  "version": "1.0.0",
+  "description": "Server that handels submissions by the form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "form",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg": "^6.2.4",
+    "pg-promise": "^5.9.3"
+  }
+}
