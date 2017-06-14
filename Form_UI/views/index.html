@@ -4,14 +4,13 @@
 <head>
     <meta charset="utf-8">
     <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <!--    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <title>My Form</title>
 </head>
 
-<body bgcolor="#CCC">
-    <div class="back">
+<body>
+    <div class="back" id="index">
     </div>
 
     <div>
@@ -30,26 +29,22 @@
                 <a href="index.html">
                     <li>Register</li>
                 </a>
-
             </ul>
         </div>
     </div>
-
     <h2 class="page-header">Register</h2>
-    <div class="center">
-        <!--        <form method="post" action="login.php">-->
-        <form method="post" action="register.php">
-            <input id="fname" type="text" name="fname" placeholder="Enter your name" required autofocus>
+    <div class="center" id="center-register">
+        <form method="post">
+            <input class="text-box" id="fname" type="text" name="fname" placeholder="Enter your name" required autofocus>
             <label>Age</label>
-            <input type="range" min="18" max="68" value="18" id="age" step="1" name="age" oninput="outputUpdate(value)">
-            <output for="age" id="ageOutput" name="age">18</output>
-            <!--            <input type="number" id="salary" name="salary" placeholder="Enter Salary to find bonus">-->
-            <!--            <output id="bonus" name="bonus" for="salary"></output>-->
-            <input id="email" type="email" name="email_id" placeholder="Enter your email id" required>
-            <input id="uname" type="text" name="username" placeholder="Enter your username" required>
-            <input id="pass" type="password" name="pass" placeholder="Enter Password" required>
-            <input id="passConfirm" type="password" name="passConfirm" placeholder="Re-enter Password" required>
-            <input type="text" id="nationality" placeholder="Nationality" name="nationality" list="natList" required>
+            <input type="range" min="18" max="100" value="18" id="age-slider" step="1" name="age">
+            <!--            <input type="range" min="18" max="100" value="18" id="age-slider" step="1" name="age" oninput="Functions.outputUpdate(value)">-->
+            <output for="age" id="age-output" name="age">18</output>
+            <input class="text-box" id="email" type="email" name="email_id" placeholder="Enter your email id" required>
+            <input class="text-box" id="uname" type="text" name="username" placeholder="Enter your username" required>
+            <input class="text-box" id="pass" type="password" name="pass" placeholder="Enter Password" required>
+            <input class="text-box" id="passConfirm" type="password" name="passConfirm" placeholder="Re-enter Password" required>
+            <input class="text-box" type="text" id="nationality" placeholder="Nationality" name="nationality" list="natList" required>
             <datalist id="natList">
                 <option value="India"></option>
                 <option value="Pakistan"></option>
@@ -72,26 +67,15 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="../js/script.js"></script>
+    <!--
     <script>
-        //        window.onload = function() {
-        //                document.getElementById('pass') = check;
-        //                document.getElementById('passConfirm') = check;
-        //                
-        //        }
-        //        function check(ip) {
-        //            if (ip.value != document.getElementById('pass').value) {
-        //                ip.setCustomValidity('Password Must be Matching.');
-        //            } else {
-        //                ip.setCustomValidity(' ');
-        //            }
-//        }
-
         function outputUpdate(age) {
             document.getElementById('ageOutput').value = age;
         }
-
     </script>
+-->
 
 </body>
 

@@ -1,33 +1,37 @@
 (function ($, d) {
     var DOM = {
             navbarLines: $('.navbar-lines'),
+            nav: $('.nav'),
             closeBtn: $('.close-btn'),
             body: $('body'),
-            ageOutput: $('#ageOutput'),
-            form: $('form')
+            ageOutput: $('#age-output'),
+            ageSlider: $('#age-slider')
         },
         Functions = {
             openNav: function (e) {
-                $('.nav').css('left', '0px');
-                $('.navbar-lines').css('opacity', '0');
+                DOM.nav.css('left', '0px');
+                DOM.navbarLines.css('opacity', '0');
                 e.preventDefault();
             },
             closeNav: function (e) {
-                $('.nav').css('left', '-300px');
-                $('.navbar-lines').css('opacity', '1');
-                //                 e.preventDefault();
-            },
-            ageOutputUpdate: function (age) {
-                DOM.ageOutput.value = age;
+                DOM.nav.css('left', '-300px');
+                DOM.navbarLines.css('opacity', '1');
             },
             checkClicked: function (e) {
                 var target = $(e.target);
                 if (!(target.is('.nav')) && !(target.is('.navbar-lines')) && !(target.is('#sub'))) {
                     Functions.closeNav(e);
                 }
-                if (target instanceof HTMLAnchorElement) {
-                    //                    e.preventDefault();
-                }
+                //                if (target instanceof HTMLAnchorElement) {
+                //                e.preventDefault();
+                //                }
+            },
+            outputUpdate: function() {
+//                console.log(DOM.ageSlider.value);
+//                console.log(document.getElementById('age-slider').value);
+//                DOM.ageOutput.value = DOM.ageSlider.value;
+//                DOM.ageOutput.innerHTML = d.getElementById('age-slider').value;
+                d.getElementById('age-output').innerHTML = d.getElementById('age-slider').value;
             }
         };
 
@@ -35,30 +39,6 @@
         DOM.navbarLines.on('click', Functions.openNav);
         DOM.closeBtn.on('click', Functions.closeNav);
         DOM.body.on('click', Functions.checkClicked);
-      /*  DOM.form.submit(function (e) {
-            e.preventDefault();
-            var $form = $(this);
-            var $inputs = $form.find("input, select, button, textarea");
-            var serialiseData = $form.serialize();
-            $inputs.prop("disabled", true);
-
-            request = $.ajax({
-                url: '/login.php',
-                type: 'post',
-                data: serialiseData
-            });
-
-            request.done(function (res, status, jqXHR) {
-                console.log("ho gaya");
-            });
-
-            request.fail(function (jqXHR, status, err) {
-                console.log("error");
-            });
-
-            request.always(function () {
-                $inputs.prop("disabled", false);
-            });
-        });*/
+        DOM.ageSlider.on('input', Functions.outputUpdate);
     };
 })(jQuery, document);
