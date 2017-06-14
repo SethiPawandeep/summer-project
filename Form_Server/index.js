@@ -85,8 +85,22 @@ var sampleApp = function () {
                 self.app.get(r, self.routes[r]);
             }
         }
-
+        self.app.post('/register', function(req, res) {
+            console.log('post method');
+            var user = req.body;
+            console.log(user);
+            db.any('INSERT INTO register (name, age, email_id, username, password, nationality, gender) values($1, $2, $3, $4, $5, $6, $7)', [user.fname, user.age, user.email_id, user.username, user.pass, user.nationality, user.gender]).then(function(data) {
+                res.json(req.body);
+                console.log('Query successful.\n');
+            }, function(err) {
+                console.log(err);
+                res.status(500).send(err);
+            });
+            
+        });
+        
         self.app.use('/ui', express.static('../Form_UI/'));
+
     }
 
     self.initialize = function () {
