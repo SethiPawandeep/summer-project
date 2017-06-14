@@ -6,12 +6,12 @@
     <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <!--    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>My Form</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Login</title>
 </head>
 
-<body bgcolor="#0cc">
-    <div class="back-login">
+<body>
+    <div class="back" id="login">
     </div>
 
     <div>
@@ -36,25 +36,16 @@
     </div>
 
     <h2 class="page-header">Login</h2>
-    <div class="center-login">
-        <!--        <form method="post" action="login.php">-->
-        <form method="post" action="login.php">
+    <div id="center-login" class="center">
+        <form method="post">
+            <input class="text-box"  id="uname-login" type="text" name="username" placeholder="Enter your username" required>
+            <input class="text-box" id="pass-login" type="password" name="pass" placeholder="Enter Password" required>
 
-            <input id="uname-l" type="text" name="username" placeholder="Enter your username" required>
-            <input id="pass-l" type="password" name="pass" placeholder="Enter Password" required>
-
-            <input id="sub-l" type="submit" >
+            <input id="login-btn" class="submit-btn" type="submit" value="Login">
         </form>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        function outputUpdate(age) {
-            document.getElementById('ageOutput').value = age;
-        }
-
-    </script>
-
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
