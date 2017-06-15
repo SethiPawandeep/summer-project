@@ -107,8 +107,17 @@ var sampleApp = function () {
         self.app.post('/login', function (req, res) {
             console.log('Login Post Method');
             var credentials = req.body;
+            console.log(credentials.username);
             console.log(credentials);
-            db.one('select * from register where username = $1', [credentials.username]).then(function (data) {
+            console.log('select * from register where username=' + '\"' + credentials.username + '\";');
+            db.query('select * from register where username=' + '\'' + credentials.username + '\';').then(function (data) {
+                console.log(data);
+                res.redirect('/ui/queryEngine.html');
+            }, function(err) {
+                console.log('Error: ');
+                return console.error(err);
+            });
+            /*db.one('select * from register where username = $1', [credentials.username]).then(function (data) {
                 console.log('Username found\n');
                 console.log(data);
                 if (data.password == credentials.pass) {
@@ -122,7 +131,7 @@ var sampleApp = function () {
                 console.log('Query unsuccessful.\n');
                 console.log('Error: ' + err);
                 res.redirect('/ui/login.html');
-            });
+            });*/
         });
         self.app.post('/query', function (req, res) {
             console.log('Query post method');
