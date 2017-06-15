@@ -93,10 +93,7 @@ var sampleApp = function () {
             var user = req.body;
             console.log(user);
             db.any('INSERT INTO register (name, age, email_id, username, password, nationality, gender) values($1, $2, $3, $4, $5, $6, $7)', [user.fname, user.age, user.email_id, user.username, user.pass, user.nationality, user.gender]).then(function (data) {
-                //                res.json(req.body);
                 console.log('Query successful.\n');
-                //                res.redirect('')
-                //                res.render('/ui/login');
                 res.redirect('/ui/login.html');
             }, function (err) {
                 console.log('Error: ');
@@ -113,25 +110,10 @@ var sampleApp = function () {
             db.query('select * from register where username=' + '\'' + credentials.username + '\';').then(function (data) {
                 console.log(data);
                 res.redirect('/ui/queryEngine.html');
-            }, function(err) {
+            }, function (err) {
                 console.log('Error: ');
                 return console.error(err);
             });
-            /*db.one('select * from register where username = $1', [credentials.username]).then(function (data) {
-                console.log('Username found\n');
-                console.log(data);
-                if (data.password == credentials.pass) {
-                    console.log('Password match.\n');
-                    res.redirect('/ui/queryEngine.html');
-                } else {
-                    console.log('Password mismatch');
-                    res.redirect('/ui/login.html');
-                }
-            }, function (err) {
-                console.log('Query unsuccessful.\n');
-                console.log('Error: ' + err);
-                res.redirect('/ui/login.html');
-            });*/
         });
         self.app.post('/query', function (req, res) {
             console.log('Query post method');
