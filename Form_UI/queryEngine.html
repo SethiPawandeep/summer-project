@@ -21,8 +21,8 @@
         <div class="nav">
             <span class="close-btn">&times;</span>
             <ul>
-                <a href="#">
-                    <li>Home</li>
+                <a href="queryEngine.html">
+                    <li>Query Engine</li>
                 </a>
                 <a href="login.html">
                     <li>Login</li>
@@ -30,15 +30,15 @@
                 <a href="index.html">
                     <li>Register</li>
                 </a>
-
             </ul>
         </div>
     </div>
 
-    <h2 class="page-header">Login</h2>
+    <h2 class="page-header">Query Engine</h2>
     <div id="center-query" class="center">
-        <form method="post">
-            <input class="text-box"  id="query" type="text" name="query" placeholder="Input query" required>
+        <form method="post" action="../query">
+<!--            <input class="text-box"  id="query" type="text" name="query" placeholder="Input query" required>-->
+            <textarea class="text-box" id="query" name="query" placeholder="Input SQL Query"></textarea>
             <input id="login-btn" class="submit-btn" type="submit" value="Submit">
         </form>
     </div>
