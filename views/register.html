@@ -38,7 +38,6 @@
             <input class="text-box" id="fname" type="text" name="fname" placeholder="Enter your name" required autofocus>
             <label>Age</label>
             <input type="range" min="18" max="100" value="18" id="age-slider" step="1" name="age">
-            <!--            <input type="range" min="18" max="100" value="18" id="age-slider" step="1" name="age" oninput="Functions.outputUpdate(value)">-->
             <output for="age" id="age-output" name="age">18</output>
             <input class="text-box" id="email_id" type="email" name="email_id" placeholder="Enter your email id" required>
             <input class="text-box" id="username" type="text" name="username" placeholder="Enter your username" required>
@@ -69,13 +68,22 @@
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="javascripts/script.js"></script>
-    <!--
-    <script>
-        function outputUpdate(age) {
-            document.getElementById('ageOutput').value = age;
+    <script type="text/javascript">
+    // var password = document.getElementsBy'id'agName('')
+    var pass = document.getElementById('#pass'),
+        passConfirm = document.getElementById('#passConfirm');
+    function validatePassword() {
+        console.log('in func');
+        if(pass.value != passConfirm.value) {
+            passConfirm.setCustomValidity('Passwords don\'t match');
+        } else {
+            passConfirm.setCustomValidity(' ');
         }
+    }
+
+    pass.onchange = validatePassword;
+    passConfirm.onkeyup = validatePassword;
     </script>
--->
 
 </body>
 
