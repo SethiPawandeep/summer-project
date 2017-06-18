@@ -1,0 +1,273 @@
+/*Setting up*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.back {
+    height: 100%;
+    width: 100%;
+    min-height: 600px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+#index {
+    background: #CCC;
+}
+
+#login {
+    background: #0CC;
+}
+
+
+/*Center*/
+
+.center {
+    position: absolute;
+    width: 500px;
+    height: 480px;
+    border-radius: 20px;
+    background: white;
+    top: 100px;
+    left: 50%;
+    margin-left: -250px;
+    padding: 15px;
+}
+
+#center-register {}
+
+#center-login {
+    height: 200px;
+    top: 50%;
+    margin-top: -100px;
+}
+
+#center-query {
+    height: auto;
+    top: 50%;
+    margin-top: -75px;
+}
+
+
+/*Navbar*/
+
+span.navbar-lines {
+    left: 15px;
+    position: fixed;
+    top: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.nav {
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    transition: ease 1s;
+    background: rgba(100, 100, 100, 0.5);
+    height: 100%;
+    z-index: 2;
+    overflow-y: scroll;
+}
+
+.close-btn {
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+ul {
+    margin-top: 50px;
+}
+
+ul li {
+    list-style: none;
+    border-bottom: 1px solid #555;
+    padding: 12px;
+}
+
+ul a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.5em;
+    transition: 1s ease;
+}
+
+ul li:hover {
+    background: rgba(200, 200, 200, 1);
+}
+
+ul a:hover {
+    color: #111;
+    border-bottom: 1px solid #111;
+}
+
+
+/*Header*/
+
+h2.page-header {
+    text-align: center;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+
+/*Form*/
+
+::-webkit-input-placeholder {
+    font-size: .9em;
+    font-weight: 300;
+    color: #EEE;
+}
+
+::-moz-placeholder {
+    font-size: .9em;
+    font-weight: 300;
+    color: #EEE;
+}
+
+:-moz-placeholder {
+    font-size: .9em;
+    font-weight: 300;
+    color: #EEE;
+}
+
+:-ms-input-placeholder {
+    font-size: .9em;
+    font-weight: 300;
+    color: #EEE;
+}
+
+input:required {
+    box-shadow: none;
+}
+
+input[type=radio] {
+    width: 30%;
+    padding-right: 0px;
+    margin-right: 0;
+}
+
+input[type=range] {
+    width: 400px;
+    margin-top: 7px;
+}
+
+output {
+    color: #AAA;
+}
+
+input[type=radio]:checked~ {
+    border: 5px solid black;
+}
+
+label {
+    color: #AAA;
+    font-size: 1.1em;
+}
+
+.text-box {
+    background: transparent;
+    width: 470px;
+    color: #AAA;
+    display: block;
+    border: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-bottom: 1px solid #EEE;
+    padding: 15px;
+    transition: ease 1s;
+}
+
+.text-box:focus {
+    outline: none;
+    border-bottom: 1px solid #AAA;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCC;
+    background: white;
+    font-weight: 500;
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 7px 7px 7px 7px;
+}
+
+#login-btn {
+    border: 1px solid #0CC;
+}
+
+.submit-btn:hover {
+    background: #CCC;
+    transition: 1s ease;
+}
+
+#login-btn:hover {
+    background: #0CC;
+}
+
+datalist,
+datalist option,
+option {
+    background: rgba(255, 255, 255, 0);
+    font-size: 2em;
+}
+
+.float-left {
+    color: #AAA;
+    font-size: 1.1em;
+    width: 33%;
+    margin-top: 10px;
+    text-align: center;
+    float: left;
+}
+
+div.float-left label {
+    font-weight: 500;
+}
+
+#uname-login:focus,
+#pass-login:focus {
+    border-bottom: 1px solid #0CC;
+}
+
+@media (max-width:991px) {
+    .center {
+        width: 300px;
+        margin-left: -150px;
+    }
+    #center-login {
+        width: 300px;
+        margin-left: -150px;
+    }
+    input[type=range] {
+        width: 210px;
+    }
+    .text-box {
+        width: 270px;
+    }
+    .nav {
+        width: 250px;
+    }
+}
+
+@media (max-height: 400px) {
+    #center-query {
+        top: 180px;
+    }
+}

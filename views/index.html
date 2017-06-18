@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="back" id="login">
+    </div>
+
+    <div>
+        <header>
+            <span class="navbar-lines">&#9776;</span>
+        </header>
+        <div class="nav">
+            <span class="close-btn">&times;</span>
+            <ul>
+                <a href="queryEngine.html">
+                    <li>Query Engine</li>
+                </a>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+                <a href="register">
+                    <li>Register</li>
+                </a>
+
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="page-header">Login</h2>
+    <div id="center-login" class="center">
+        <form method="post" action="/">
+            <input class="text-box"  id="uname-login" type="text" name="username" placeholder="Enter your username" required>
+            <input class="text-box" id="pass-login" type="password" name="pass" placeholder="Enter Password" required>
+
+            <input id="login-btn" class="submit-btn" type="submit" value="Login">
+        </form>
+    </div>
+
+    <script src="javascripts/script.js"></script>
+</body>
+
+</html>
