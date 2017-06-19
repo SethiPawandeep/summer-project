@@ -29,8 +29,8 @@
 
 .center {
     position: absolute;
-    width: 500px;
-    height: 480px;
+    width: auto;
+    height: auto;
     border-radius: 20px;
     background: white;
     top: 100px;
@@ -54,8 +54,11 @@
 }
 
 .error {
+    text-align: center;
     color: red;
+    font-size: 15px;
 }
+
 
 /*Navbar*/
 

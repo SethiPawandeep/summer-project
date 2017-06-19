@@ -5,7 +5,7 @@ var registerController = require('../controllers/registerController');
 
 
 router.get('/', function(req, res) {
-	res.render('register', {err: ''});
+    res.render('register', { err: '' });
 });
 
 router.post('/', registerController.registerPOST);
