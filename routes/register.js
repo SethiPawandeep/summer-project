@@ -5,9 +5,9 @@ var registerController = require('../controllers/registerController');
 
 
 router.get('/', function(req, res) {
-	res.render('register');
+	res.render('register', {err: ''});
 });
 
-router.post('/', registerController.registerSubmit);
+router.post('/', registerController.registerPOST);
 
 module.exports = router;
