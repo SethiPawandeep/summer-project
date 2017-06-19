@@ -4,8 +4,11 @@ var router = express.Router();
 var authController = require('../controllers/authController');
 
 function checkLogin(req, res, next) {
+	console.log('CheckLogin');
     if (req.session && req.session.username) {
-        res.render('/', { uname: req.session.username });
+    	console.log(req.session);
+    	console.log('in if');
+        res.render('index', { uname: req.session.username });
     } else {
         console.log('else');
         next();
@@ -18,8 +21,11 @@ router.get('/', checkLogin, function(req, res, next) {
     res.render('login', { msg: '' });
 });
 
-// router.post('/', authController.loginPOST);
-
 router.post('/', authController.loginPOST);
+
+router.get('/logout', function(req, res) {
+	req.session.destroy();
+	res.redirect('/login');
+});
 
 module.exports = router;

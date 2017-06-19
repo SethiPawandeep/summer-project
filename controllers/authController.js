@@ -35,6 +35,8 @@ exports.loginPOST = function(req, res) {
     console.log('here');
     db.one('SELECT * FROM register where username=$1 and password=$2', [credentials.username, credentials.pass]).then(function(data) {
         console.log('Credentials match!');
+        req.session.username = credentials.username;
+        console.log(req.session.username);
         console.log(data);
         res.render('index', { uname: credentials.username });
     }, function(err) {
