@@ -5,7 +5,9 @@
             closeBtn: $('.close-btn'),
             body: $('body'),
             ageOutput: $('#age-output'),
-            ageSlider: $('#age-slider')
+            ageSlider: $('#age-slider'),
+            usernameLogin: $('#uname-login'),
+            form: $('form')
         },
         Functions = {
             openNav: function(e) {
@@ -22,16 +24,20 @@
                 if (!(target.is('.nav')) && !(target.is('.navbar-lines')) && !(target.is('#sub'))) {
                     Functions.closeNav(e);
                 }
-                //                if (target instanceof HTMLAnchorElement) {
-                //                e.preventDefault();
-                //                }
             },
             outputUpdate: function() {
-                //                console.log(DOM.ageSlider.value);
-                //                console.log(document.getElementById('age-slider').value);
-                //                DOM.ageOutput.value = DOM.ageSlider.value;
-                //                DOM.ageOutput.innerHTML = d.getElementById('age-slider').value;
                 d.getElementById('age-output').innerHTML = d.getElementById('age-slider').value;
+            },
+            formSubmit: function() {
+                form.ajaxSubmit({
+                    error: function(xhr) {
+                        status('Error: ' + xhr.status);
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
+                // return false; --> To prevent the page from refreshing
             }
         };
 
@@ -40,5 +46,7 @@
         DOM.closeBtn.on('click', Functions.closeNav);
         DOM.body.on('click', Functions.checkClicked);
         DOM.ageSlider.on('input', Functions.outputUpdate);
+        DOM.usernameLogin.on('blur', Functions.showAlert);
+        DOM.form.submit(Functions.formSubmit);
     };
 })(jQuery, document);

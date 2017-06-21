@@ -1,2 +1,9 @@
+#node_modules
 node_modules
+
+#myFiles
 queries
+
+#config files
+myRecaptcha.js
+config.js
