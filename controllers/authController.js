@@ -54,19 +54,28 @@ exports.registerPOST = function(req, res) {
 };
 
 exports.loginPOST = function(req, res) {
-    console.log(req.body);
     var credentials = req.body;
     console.log('here');
-    db.one('SELECT * FROM register where username=$1 and password=$2', [credentials.username, credentials.pass]).then(function(data) {
-        console.log('Credentials match!');
-        req.session.username = credentials.username;
-        console.log(req.session.username);
-        console.log(data);
-        res.render('index', { uname: credentials.username });
-    }, function(err) {
-        console.log('Error: ');
-        console.log(err);
-        console.log('Invalid ');
-        res.render('login', { msg: 'Invalid username or password' });
-    })
+    db.one('SELECT * FROM register where username=$1', [credentials.username]).then(function(data) {
+            bcrypt.compare(credentials.pass, data.password, function(err, passMatch) {
+                if (err) {
+                    console.log('Credentials do not match.\n');
+                    res.render('login', { msg: 'Invalid username or password' });
+                }
+                if (passMatch === true) {
+                    console.log('Credentials match!');
+                    req.session.username = credentials.username;
+                    res.render('index', { uname: credentials.username });
+                } else {
+                    console.log('Credentials do not match.\n');
+                    res.render('login', { msg: 'Invalid username or password' });
+                }
+            });
+        },
+        function(err) {
+            console.log('Error: ');
+            console.log(err);
+            console.log('Invalid ');
+            res.render('login', { msg: 'Invalid username or password' });
+        });
 };
