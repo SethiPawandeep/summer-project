@@ -56,7 +56,7 @@
     margin-top: -75px;
 }
 
-.error {
+.error-login, .error-register {
     text-align: center;
     color: red;
     font-size: 15px;

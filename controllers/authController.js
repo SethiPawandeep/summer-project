@@ -1,5 +1,6 @@
 var pgp = require('pg-promise')({});
 var request = require('request');
+var bcrypt = require('bcrypt');
 
 var recaptchaCredentials = require('../myRecaptcha.js');
 
@@ -35,13 +36,18 @@ exports.registerPOST = function(req, res) {
         if (user.pass != user.passConfirm) {
             res.render('register');
         } else {
-            db.any('INSERT INTO register (name, age, email_id, username, password, nationality, gender) values($1, $2, $3, $4, $5, $6, $7)', [user.fname, user.age[0], user.email_id, user.username, user.pass, user.nationality, user.gender]).then(function(data) {
-                console.log('Query successful.\n');
-                res.redirect('/');
-            }, function(err) {
-                console.log('Error: ');
-                console.log(err);
-                res.status(500).send(err);
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(user.pass, salt, function(err, hash) {
+                    console.log(hash);
+                    db.any('INSERT INTO register (name, age, email_id, username, password, nationality, gender) values($1, $2, $3, $4, $5, $6, $7)', [user.fname, user.age[0], user.email_id, user.username, hash, user.nationality, user.gender]).then(function(data) {
+                        console.log('Query successful.\n');
+                        res.redirect('/');
+                    }, function(err) {
+                        console.log('Error: ');
+                        console.log(err);
+                        res.status(500).send(err);
+                    });
+                });
             });
         }
     });

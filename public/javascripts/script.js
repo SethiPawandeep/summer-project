@@ -10,7 +10,7 @@
             form: $('form'),
             pass: $('#pass'),
             passConfirm: $('#passConfirm'),
-            error: $('.error')
+            error: $('.error-register')
         },
         Functions = {
             openNav: function(e) {

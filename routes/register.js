@@ -5,7 +5,7 @@ var authController = require('../controllers/authController');
 
 
 router.get('/', function(req, res) {
-    res.render('register', { err: '' });
+    res.render('register');
 });
 
 router.post('/', authController.registerPOST);

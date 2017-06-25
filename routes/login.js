@@ -18,7 +18,8 @@ function checkLogin(req, res, next) {
 
 router.get('/', checkLogin, function(req, res, next) {
     console.log('get/ render /login');
-    res.render('login', { msg: '' });
+    // res.render('login', { msg: '' });
+    res.redirect('/');
 });
 
 router.post('/', authController.loginPOST);
