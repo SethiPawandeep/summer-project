@@ -10,14 +10,15 @@
 .back {
     height: 100%;
     width: 100%;
-    min-height: 600px;
+    min-height: 300px;
     position: absolute;
     top: 0;
     z-index: -1;
 }
 
-#index {
+#register {
     background: #CCC;
+    min-height: 650px;
 }
 
 #login {
@@ -39,7 +40,9 @@
     padding: 15px;
 }
 
-#center-register {}
+#center-register {
+    top: 80px;
+}
 
 #center-login {
     height: 200px;
@@ -189,6 +192,7 @@ label {
     width: 470px;
     color: #AAA;
     display: block;
+    margin-top: 1px;
     border: 0;
     font-size: 1.1em;
     font-weight: 500;
@@ -252,28 +256,35 @@ div.float-left label {
     border-bottom: 1px solid #0CC;
 }
 
+.captcha-style {
+    margin-top: 35px;
+    margin-bottom: -5px;
+    position: relative;
+    left:50%;
+    margin-left: -156px;
+}
+
 @media (max-width:991px) {
     .center {
-        width: 300px;
-        margin-left: -150px;
-    }
-    #center-login {
-        width: 300px;
-        margin-left: -150px;
+        width: auto;
+        margin-left: -175px;
     }
     input[type=range] {
         width: 210px;
     }
     .text-box {
-        width: 270px;
+        width: 320px;
     }
     .nav {
         width: 250px;
     }
 }
 
-@media (max-height: 400px) {
+@media (max-height: 350px) {
     #center-query {
+        top: 180px;
+    }
+    #center-login {
         top: 180px;
     }
 }

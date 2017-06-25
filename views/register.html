@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="back" id="index">
+    <div class="back" id="register">
     </div>
     <div>
         <header>
@@ -35,7 +35,7 @@
     <h2 class="page-header">Register</h2>
     <div class="center" id="center-register">
         <div class="error-box">
-            <h3 class="error"> <%= err %>  </h3>
+            <h3 class="error"></h3>
         </div>
         <form method="post" action="/register">
             <input class="text-box" id="fname" type="text" name="fname" placeholder="Enter your name" required autofocus>
@@ -65,7 +65,7 @@
                     <input type="radio" value="female" name="gender">Female
                 </div>
             </div>
-            <div class="g-recaptcha" data-sitekey="6Le1OCYUAAAAAMqp1c27NekcoX3SJKFtJM8tYPr0"></div>
+            <div class="g-recaptcha captcha-style" data-sitekey="6Le1OCYUAAAAAMqp1c27NekcoX3SJKFtJM8tYPr0"></div>
             <input class="submit-btn" type="submit">
         </form>
     </div>
