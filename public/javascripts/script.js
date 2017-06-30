@@ -32,7 +32,7 @@
                 DOM.ageOutput.html(DOM.ageSlider.val());
             },
             formSubmit: function() {
-                if (formCorrect == false) {
+                if (Variables.formCorrect == false) {
                     DOM.error.html('Password and Confirm Password do not match.');
                     // return false;
                 }
@@ -58,22 +58,23 @@
                     DOM.pass.css('border', 'red 1px solid');
                     DOM.passConfirm.css('border', '1px solid red');
                     DOM.error.html('Password and Confirm Password do not match.');
-                    formCorrect = false;
+                    Variables.formCorrect = false;
                 } else if (DOM.passConfirm.val() === DOM.pass.val()) {
                     DOM.pass.css('border', '0');
                     DOM.passConfirm.css('border', '0');
                     DOM.pass.css('border-bottom', '#EEE 1px solid');
                     DOM.passConfirm.css('border-bottom', '1px solid #EEE');
                     DOM.error.html('');
-                    formCorrect = true;
+                    Variables.formCorrect = true;
                     Functions.minPassLength();
                 }
             }
         },
-        formCorrect;
+        Variables = {
+            formCorrect: false
+        };
 
     window.onload = function() {
-        formCorrect = false;
         DOM.navbarLines.on('click', Functions.openNav);
         DOM.closeBtn.on('click', Functions.closeNav);
         DOM.body.on('click', Functions.checkClicked);

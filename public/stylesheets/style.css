@@ -18,7 +18,7 @@
 
 #register {
     background: #CCC;
-    min-height: 650px;
+    min-height: 900px;
 }
 
 #login {
@@ -231,6 +231,15 @@ label {
     background: #0CC;
 }
 
+#map {
+    top:10px;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    left:50%;
+    margin-left: -200px;
+}
+
 datalist,
 datalist option,
 option {
@@ -257,7 +266,7 @@ div.float-left label {
 }
 
 .captcha-style {
-    margin-top: 35px;
+    margin-top: 25px;
     margin-bottom: -5px;
     position: relative;
     left:50%;

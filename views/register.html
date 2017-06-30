@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
     <!--    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <title>My Form</title>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -65,12 +65,44 @@
                     <input type="radio" value="female" name="gender">Female
                 </div>
             </div>
+            <div id="map">
+            </div>
             <div class="g-recaptcha captcha-style" data-sitekey="6Le1OCYUAAAAAMqp1c27NekcoX3SJKFtJM8tYPr0"></div>
             <input class="submit-btn" type="submit">
         </form>
     </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(myMap);
+        } else {
+            document.getElementById('map').innerHTML = 'Browser does not support geolocation.';
+        }
+    }
+
+    function myMap(position) {
+        var myCenter = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: myCenter,
+            zoom: 10
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({
+            position: myCenter
+        });
+        marker.setMap(map);
+
+        google.maps.event.addListener(marker, 'click', function() {
+            map.setZoom(14);
+            map.setCenter(marker.getPosition());
+        });
+    }
+    </script>
+    <script asynch defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgL50-HtuXn1H6m8pN4I246TnNBZ1Y7uQ&callback=getLocation"></script>
     <script src="javascripts/script.js"></script>
 </body>
 
