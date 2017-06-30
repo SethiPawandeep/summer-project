@@ -49,8 +49,10 @@
             minPassLength: function() {
                 if (DOM.pass.val().length < 6) {
                     DOM.error.html('Minimum 6 characters for password field.');
+                    Variables.formCorrect = false;
                 } else {
                     DOM.error.html('');
+                    Variables.formCorrect = true;
                 }
             },
             passValidation: function() {

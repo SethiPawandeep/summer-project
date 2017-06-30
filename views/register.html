@@ -65,8 +65,9 @@
                     <input type="radio" value="female" name="gender">Female
                 </div>
             </div>
-            <div id="map">
-            </div>
+            <div id="map"></div>
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
             <div class="g-recaptcha captcha-style" data-sitekey="6Le1OCYUAAAAAMqp1c27NekcoX3SJKFtJM8tYPr0"></div>
             <input class="submit-btn" type="submit">
         </form>
@@ -84,7 +85,11 @@
     }
 
     function myMap(position) {
-        var myCenter = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
+        var myCenter = new google.maps.LatLng(latitude, longitude);
         var mapCanvas = document.getElementById("map");
         var mapOptions = {
             center: myCenter,
