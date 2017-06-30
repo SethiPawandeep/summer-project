@@ -38,3 +38,5 @@ module.exports = {
 **Progress as of 21/06:** reCAPTCHA added to registration form.
 
 **Progress as of 25/06:** Node module `bcrypt` used to encrypt password on the server.
+
+**Progress as of 30/06:** HTML5 Geolocation implemented. Latitude and Longitude submitted through register form.
