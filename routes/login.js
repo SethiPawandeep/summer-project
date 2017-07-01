@@ -7,10 +7,8 @@ function checkLogin(req, res, next) {
 	console.log('CheckLogin');
     if (req.session && req.session.username) {
     	console.log(req.session);
-    	console.log('in if');
         res.render('index', { uname: req.session.username });
     } else {
-        console.log('else');
         next();
     }
 }
