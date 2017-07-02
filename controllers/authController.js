@@ -18,7 +18,6 @@ exports.registerPOST = function(req, res) {
     console.log('registerPOST method');
     console.log(req.body);
     if (req.body.purpose === 'check username') {
-        console.log('check username on register');
         db.one('SELECT * FROM register WHERE username=$1', [req.body.username]).then(function(data) {
             console.log('Data: ' + data);
             console.log('found');

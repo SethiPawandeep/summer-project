@@ -91,11 +91,13 @@
         document.getElementById('longitude').value = longitude;
         var myCenter = new google.maps.LatLng(latitude, longitude);
         var mapCanvas = document.getElementById("map");
+
         var mapOptions = {
             center: myCenter,
             zoom: 10
         };
         var map = new google.maps.Map(mapCanvas, mapOptions);
+        google.maps.event.trigger(map, 'resize');
         var marker = new google.maps.Marker({
             position: myCenter
         });
