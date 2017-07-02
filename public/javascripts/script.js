@@ -7,6 +7,7 @@
             ageOutput: $('#age-output'),
             ageSlider: $('#age-slider'),
             usernameLogin: $('#uname-login'),
+            username: $('#username'),
             form: $('form'),
             pass: $('#pass'),
             passConfirm: $('#passConfirm'),
@@ -39,6 +40,7 @@
                 form.ajaxSubmit({
                     error: function(xhr) {
                         status('Error: ' + xhr.status);
+                        console.log('Error: ' + xhr.status);
                     },
                     success: function(response) {
                         console.log(response);
@@ -64,11 +66,32 @@
                 } else if (DOM.passConfirm.val() === DOM.pass.val()) {
                     DOM.pass.css('border', '0');
                     DOM.passConfirm.css('border', '0');
-                    DOM.pass.css('border-bottom', '#EEE 1px solid');
+                    DOM.pass.css('border-bottom', '1px solid #EEE');
                     DOM.passConfirm.css('border-bottom', '1px solid #EEE');
                     DOM.error.html('');
                     Variables.formCorrect = true;
                     Functions.minPassLength();
+                }
+            },
+            checkUsernameExists: function() {
+                if (DOM.username.val() !== '') {
+                    $.post('/register', {
+                        username: DOM.username.val(),
+                        purpose: 'check username'
+                    }).done(function(data) {
+                        if (data.found === true) {
+                            Variables.formCorrect = false;
+                            DOM.username.focus();
+                            DOM.username.css('border', '1px solid red');
+                            DOM.error.html('Username already exists. Try something else.');
+                        } else {
+                            Variables.formCorrect = true;
+                            DOM.username.css('border', '0');
+                            DOM.username.css('border-bottom', '1px solid #EEE')
+                            DOM.error.html('');
+                        }
+                    });
+                    return false;
                 }
             }
         },
@@ -85,5 +108,6 @@
         DOM.form.submit(Functions.formSubmit);
         DOM.passConfirm.on('blur', Functions.passValidation);
         DOM.pass.on('blur', Functions.minPassLength);
+        DOM.username.on('blur', Functions.checkUsernameExists);
     };
 })(jQuery, document);
