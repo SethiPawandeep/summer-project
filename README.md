@@ -30,6 +30,15 @@ module.exports = {
 
 > Step 6
 
+Create a directory called `SSL` in the root directory of the project. Type the following commands in the terminal to generate your self signed SSL Certificate
+```
+$ openssl genrsa -out key.pem 1024 
+$ openssl req -new -key key.pem -out certrequest.csr
+$ openssl x509 -req -in certrequest.csr -signkey key.pem -out cert.pem
+```
+
+> Step 7
+
 `npm start` the project and type `localhost:3000` in your browser and you are ready to go! :smiley:
 
 
@@ -40,3 +49,5 @@ module.exports = {
 **Progress as of 25/06:** Node module `bcrypt` used to encrypt password on the server.
 
 **Progress as of 30/06:** HTML5 Geolocation implemented. Latitude and Longitude submitted through register form.
+
+**Progress as of 03/07:** HTTPS server used. Self-signed SSL certificate created.
