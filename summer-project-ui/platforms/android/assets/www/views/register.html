@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>My Form</title>
+</head>
+
+<body>
+    <div class="back" id="register">
+    </div>
+    <div>
+        <header>
+            <span class="navbar-lines">&#9776;</span>
+        </header>
+        <div class="nav">
+            <span class="close-btn">&times;</span>
+            <ul>
+                <a href="queryEngine.html">
+                    <li>Query Engine</li>
+                </a>
+                <a href="/login">
+                    <li>Login</li>
+                </a>
+                <a href="register">
+                    <li>Register</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <h2 class="page-header">Register</h2>
+    <div class="center" id="center-register">
+        <div class="error-box">
+            <h3 class="error-register">
+                <%= err %>
+            </h3>
+        </div>
+        <form method="post" action="/register">
+            <input class="text-box" id="fname" type="text" name="fname" placeholder="Enter your name" required autofocus>
+            <label>Age</label>
+            <input type="range" min="18" max="100" value="18" id="age-slider" step="1" name="age">
+            <output for="age" id="age-output" name="ageOutput">18</output>
+            <input class="text-box" id="email_id" type="email" name="email_id" placeholder="Enter your email id" required>
+            <input class="text-box" id="username" type="text" name="username" placeholder="Enter your username" required>
+            <input class="text-box" id="pass" type="password" name="pass" placeholder="Enter Password" required>
+            <input class="text-box" id="passConfirm" type="password" name="passConfirm" placeholder="Re-enter Password" required>
+            <input class="text-box" type="text" id="nationality" placeholder="Nationality" name="nationality" list="natList" required>
+            <datalist id="natList">
+                <option value="India"></option>
+                <option value="Pakistan"></option>
+                <option value="Australia"></option>
+                <option value="South Africa"></option>
+                <option value="England"></option>
+            </datalist>
+            <div>
+                <div class="float-left">
+                    <label>Gender</label>
+                </div>
+                <div class="float-left">
+                    <input type="radio" value="male" name="gender">Male
+                </div>
+                <div class="float-left">
+                    <input type="radio" value="female" name="gender">Female
+                </div>
+            </div>
+            <div id="map"></div>
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+            <div class="g-recaptcha captcha-style" data-sitekey="6Le1OCYUAAAAAMqp1c27NekcoX3SJKFtJM8tYPr0"></div>
+            <input class="submit-btn" type="submit">
+        </form>
+    </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(myMap);
+            } else {
+                document.getElementById('map').innerHTML = 'Browser does not support geolocation.';
+            }
+        }
+
+        function myMap(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById('latitude').value = latitude;
+            document.getElementById('longitude').value = longitude;
+            var myCenter = new google.maps.LatLng(latitude, longitude);
+            var mapCanvas = document.getElementById("map");
+
+            var mapOptions = {
+                center: myCenter,
+                zoom: 10
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            google.maps.event.trigger(map, 'resize');
+            var marker = new google.maps.Marker({
+                position: myCenter
+            });
+            marker.setMap(map);
+
+            google.maps.event.addListener(marker, 'click', function() {
+                map.setZoom(14);
+                map.setCenter(marker.getPosition());
+            });
+        }
+
+    </script>
+    <script asynch defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw39TMCLBtAlMEei3NQNTv1PPRM5LKIIA&callback=getLocation"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
