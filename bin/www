@@ -7,11 +7,12 @@
 var app = require('../app');
 var debug = require('debug')('summer-project:server');
 var https = require('https');
+var path = require('path');
 var fs = require('fs');
 
-var key = fs.readFileSync('../SSL/key.pem', 'utf8');
+var key = fs.readFileSync(path.resolve('./SSL/key.pem'), 'utf8');
 // console.log(key);
-var cert = fs.readFileSync('../SSL/cert.pem', 'utf8');
+var cert = fs.readFileSync(path.resolve('./SSL/cert.pem'), 'utf8');
 // console.log(cert);
 var httpsOptions = {
   key: key,
