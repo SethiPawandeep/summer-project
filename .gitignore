@@ -7,3 +7,5 @@ queries
 #config files
 myRecaptcha.js
 config.js
+#SSL Credentials
+SSL
