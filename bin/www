@@ -6,20 +6,32 @@
 
 var app = require('../app');
 var debug = require('debug')('summer-project:server');
-var http = require('http');
+var https = require('https');
+var fs = require('fs');
+
+var key = require('../SSL/key.pem');
+var cert = require('../SSL/cert.pem');
+var httpsOptions = {
+  key: key,
+  cert: cert
+};
+
+app.configure(function() {
+  app.use(app.router);
+});
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+// app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer(httpsOptions, app);
 
 /**
  * Listen on provided port, on all network interfaces.
