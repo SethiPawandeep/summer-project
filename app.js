@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var socket = require('socket.io');
 var config = require('./config.js');
 
 var index = require('./routes/index');
@@ -13,8 +13,9 @@ var login = require('./routes/login');
 var users = require('./routes/users');
 var register = require('./routes/register');
 var app = express();
-
-
+var io = socket();
+app.io = io;
+var chat = require('./routes/chat')(io);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/chat', chat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,6 +57,11 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+
+//socket io events
+io.on('connection', function(socket) {
+    console.log('A user connected');
 });
 
 module.exports = app;

@@ -6,10 +6,10 @@ var recaptchaCredentials = require('../myRecaptcha.js');
 
 var credentials = {
     host: 'localhost',
-    port: 5432,
-    database: 'pd',
-    username: 'pd',
-    password: 'pawan123'
+    port: 5000,
+    database: 'postgres',
+    user: 'postgres',
+    password: 'ips'
 }
 
 var db = pgp(credentials);
