@@ -2,7 +2,131 @@
 <html>
 
 <head>
-    <title>NIC App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    <style>
+        #login-box header {
+            background: #5c6bc0;
+            width: 100%;
+            font-size: 1.3em;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+        
+        #login-box {
+            position: absolute;
+            width: 80%;
+            left: 50%;
+            margin-left: -40%;
+            top: 50%;
+            padding: 0;
+            z-index: 3;
+            background: white;
+            height: 160px;
+            margin-top: -100px;
+            visibility: hidden;
+        }
+        
+        #login-box .login-close {
+            position: absolute;
+            font-size: 2em;
+            top: 5px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .box-login-btn,
+        .box-register-btn {
+            border-radius: 0;
+            width: 49%;
+            margin: 0;
+            left: .5%;
+            position: relative;
+        }
+
+    </style>
+
 </head>
+
+<body>
+    <div class="back"></div>
+
+    <header>
+        <span class="navbar-lines">&#9776;</span>
+        <div class="nav">
+            <span class="close-btn">&times;</span>
+            <ul>
+                <a href="/about">
+                    <li>About</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+    <div class="show-at-middle">
+        <img src="images/niclogo.gif" id="nic-logo">
+        <h1 id="login-heading">Welcome to NIC Nightduty App</h1>
+        <button class="k-button k-primary login-btn">Login
+        </button>
+    </div>
+
+    <div id="login-box">
+        <header>Login</header>
+        <span class="login-close">&times;</span>
+        <input class="text-box k-textbox" id="emp-name" type="text" placeholder="Name">
+        <input class="text-box k-textbox" id="emp-name" type="password" placeholder="Password">
+        <!--        <div style="width: 100%">-->
+<!--        <button class="k-button box-login-btn">Login</button>-->
+        <input type="submit" class="k-button box-login-btn" value="Login">
+        <a href="/register"><button class="k-button box-register-btn">Register</button></a>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    (function($, d) {
+        var DOM = {
+                loginBtn: $('.login-btn'),
+                loginBox: $('#login-box'),
+                back: $('.back'),
+                closeBtn: $('.login-close')
+            
+            },
+            Functions = {
+                showBox: function(event) {
+                    console.log('asdfkasjbdf');
+                    DOM.back.css('z-index', '2');
+                    DOM.back.css('background', 'rgba(0, 0, 0, 0.5)');
+                    DOM.loginBox.css('visibility', 'visible');
+                },
+                closeBox: function(event) {
+                    console.log('asdf');
+                    DOM.back.css('z-index', '-1');
+                    DOM.back.css('background', 'rgba(255, 255, 255, 1)');
+                    DOM.loginBox.css('visibility', 'hidden');
+                    
+                }
+            }
+        $(d).ready(function() {
+            DOM.loginBtn.on('click', Functions.showBox);
+            DOM.closeBtn.on('click', Functions.closeBox);
+        });
+    })(jQuery, document);
+
+</script>
+<script type="text/javascript" src="javascripts/script.js"></script>
 
 </html>

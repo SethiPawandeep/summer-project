@@ -11,6 +11,25 @@
     width: 100%;
 }
 
+.show-at-middle {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -150px;
+}
+
+#nic-logo {
+    display: block;
+    margin: auto;
+    width: 40%;
+}
+
+.show-at-middle #login-heading {
+    font-size: 2.5em;
+    padding: 2em;
+    text-align: center;
+}
+
 .navbar-lines {
     position: fixed;
     top: 20px;
@@ -30,10 +49,10 @@
 }
 
 .close-btn {
-    position:absolute;
+    position: absolute;
     font-size: 2.4em;
     cursor: pointer;
-/*    float: right;*/
+    /*    float: right;*/
     top: 10px;
     right: 20px;
 }
@@ -41,6 +60,7 @@
 .nav ul {
     list-style: none;
     width: 100%;
+    margin-top: 50px;
 }
 
 .nav ul a {
@@ -55,7 +75,7 @@
 }
 
 .nav ul a li {
-    margin-top: 50px;
+    margin-top: 10px;
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -93,7 +113,15 @@ form>ul {
     list-style: none;
 }
 
-.k-button {
+.login-btn {
+    box-sizing: border-box;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+}
+
+.register-btn {
     margin-top: 1em;
     float: right;
 }

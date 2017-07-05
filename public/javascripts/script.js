@@ -5,7 +5,7 @@
             empId: $('#emp-id'),
             designationList: $('#designation'),
             closeBtn: $('.close-btn'),
-        body: $('body')
+            body: $('body')
         },
         Functions = {
             showNav: function (event) {
