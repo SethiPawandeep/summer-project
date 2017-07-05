@@ -1,8 +1,99 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-lines {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+.nav {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    margin-left: -300px;
+    z-index: 2;
+    transition: 1s ease;
+}
+
+.close-btn {
+    position:absolute;
+    font-size: 2.4em;
+    cursor: pointer;
+/*    float: right;*/
+    top: 10px;
+    right: 20px;
+}
+
+.nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+.nav ul a {
+    cursor: pointer;
+    color: black;
+    width: 100%;
+    text-decoration: none;
+}
+
+.nav ul a li:hover {
+    background: #CCC;
+}
+
+.nav ul a li {
+    margin-top: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 2em;
+}
+
+.form-middle {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 20px;
+    margin-left: -200px;
+    margin-top: -223px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    color: #444;
+}
+
+.text-box {
+    width: 100%;
+    border: 1px solid #CCC;
+}
+
+form>ul {
+    list-style: none;
+}
+
+.k-button {
+    margin-top: 1em;
+    float: right;
 }
