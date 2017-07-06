@@ -62,13 +62,12 @@
 
 </head>
 
-<body>
-    <div class="back"></div>
+<body class="login">
 
     <header>
-        <span class="navbar-lines">&#9776;</span>
-        <div class="nav">
-            <span class="close-btn">&times;</span>
+        <span class="navIcon">&#9776;</span>
+        <div class="navbar">
+            <span class="closeButton">&times;</span>
             <ul>
                 <a href="/about">
                     <li>About</li>
@@ -79,16 +78,15 @@
     <div class="show-at-middle">
         <img src="images/niclogo.gif" id="nic-logo">
         <h1 id="login-heading">Welcome to NIC Nightduty App</h1>
-        <button class="k-button k-primary login-btn">Login
+        <button class="k-button k-primary loginButton">Login
         </button>
     </div>
 
     <div id="login-box">
         <header>Login</header>
         <span class="login-close">&times;</span>
-        <input class="text-box k-textbox" id="emp-name" type="text" placeholder="Name">
-        <input class="text-box k-textbox" id="emp-name" type="password" placeholder="Password">
-        <!--        <div style="width: 100%">-->
+        <input class="textBox k-textbox" id="emp-name" type="text" placeholder="Name">
+        <input class="textBox k-textbox" id="emp-name" type="password" placeholder="Password">
         <a href="#"><button class="k-button box-login-btn">Login</button></a>
         <a href="/register"><button class="k-button box-register-btn">Register</button></a>
 
@@ -98,11 +96,11 @@
 <script type="text/javascript">
     (function($, d) {
         var DOM = {
-                loginBtn: $('.login-btn'),
+                loginButton: $('.loginButton'),
                 loginBox: $('#login-box'),
                 back: $('.back'),
                 closeBtn: $('.login-close')
-            
+
             },
             Functions = {
                 showBox: function(event) {
@@ -116,11 +114,11 @@
                     DOM.back.css('z-index', '-1');
                     DOM.back.css('background', 'rgba(255, 255, 255, 1)');
                     DOM.loginBox.css('visibility', 'hidden');
-                    
+
                 }
             }
         $(d).ready(function() {
-            DOM.loginBtn.on('click', Functions.showBox);
+            DOM.loginButton.on('click', Functions.showBox);
             DOM.closeBtn.on('click', Functions.closeBox);
         });
     })(jQuery, document);

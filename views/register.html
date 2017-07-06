@@ -18,13 +18,11 @@
 
 </head>
 
-<body>
-    <div class="back"></div>
-
+<body class="register">
     <header>
-        <span class="navbar-lines">&#9776;</span>
-        <div class="nav">
-            <span class="close-btn">&times;</span>
+        <span class="navIcon">&#9776;</span>
+        <div class="navbar">
+            <span class="closeButton">&times;</span>
             <ul>
                 <a href="/login">
                     <li>Login</li>
@@ -35,20 +33,20 @@
             </ul>
         </div>
     </header>
-    <div class="form-middle k-content">
+    <div class="registerForm">
         <form action="/register" method="post">
-            <ul class="fieldlist">
+            <ul>
                 <li>
-                    <label for="emp-id">Employee Id</label>
-                    <input class="text-box k-textbox" id="emp-id" type="text" placeholder="0000" name="empId">
+                    <label for="empId">Employee Id</label>
+                    <input class="textBox k-textbox" id="empId" type="text" placeholder="0000" name="empId">
                 </li>
                 <li>
-                    <label for="emp-name">Name</label>
-                    <input class="text-box k-textbox" id="emp-name" type="text" placeholder="Name" name="empName">
+                    <label for="empName">Name</label>
+                    <input class="textBox k-textbox" id="empName" type="text" placeholder="Name" name="empName">
                 </li>
                 <li>
                     <label for="designation">Designation</label>
-                    <select class="text-box" id="designation" name="designation">
+                    <select class="textBox" id="designation" name="designation">
                         <option>Scientist A</option>
                         <option>Scientist B</option>
                         <option>Scientist C</option>
@@ -57,18 +55,17 @@
                 </li>
                 <li>
                     <label for="password">Password</label>
-                    <input class="text-box k-textbox" id="password" type="password" placeholder="At least 6 characters long" name="password">
+                    <input class="textBox k-textbox" id="password" type="password" placeholder="At least 6 characters long" name="password">
                 </li>
                 <li>
-                    <label for="password-confirm">Confirm Password</label>
-                    <input class="text-box k-textbox" id="password-confirm" type="password" placeholder="Re-enter password">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input class="textBox k-textbox" id="confirmPassword" type="password" placeholder="Re-enter password">
                 </li>
                 <li>
-                    <div class="g-recaptcha captcha-style" data-sitekey="6Lfd_ycUAAAAAC83sUyFOoADW08cE2QV-eFo5t4a"></div>
+                    <div class="g-recaptcha captchaStyle" data-sitekey="6Lfd_ycUAAAAAC83sUyFOoADW08cE2QV-eFo5t4a"></div>
                 </li>
                 <li>
-<!--                    <button class="k-button k-primary register-btn">Register</button>-->
-                    <input type="submit" class="k-button k-primary register-btn" value="Register">
+                    <button class="k-button k-primary registerButton">Register</button>
                 </li>
             </ul>
         </form>
