@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -69,15 +70,13 @@
         <div class="navbar">
             <span class="closeButton">&times;</span>
             <ul>
-                <a href="/about">
-                    <li>About</li>
-                </a>
+                <li><a href="/about">About</a></li>
             </ul>
         </div>
     </header>
-    <div class="show-at-middle">
-        <img src="images/niclogo.gif" id="nic-logo">
-        <h1 id="login-heading">Welcome to NIC Nightduty App</h1>
+    <div class="middleBox">
+        <img src="images/niclogo.gif" alt="NIC Logo">
+        <h1>Welcome to NIC Nightduty App</h1>
         <button class="k-button k-primary loginButton">Login
         </button>
     </div>
@@ -86,44 +85,44 @@
         <header>Login</header>
         <span class="login-close">&times;</span>
         <input class="textBox k-textbox" id="emp-name" type="text" placeholder="Name">
-        <input class="textBox k-textbox" id="emp-name" type="password" placeholder="Password">
-        <a href="#"><button class="k-button box-login-btn">Login</button></a>
-        <a href="/register"><button class="k-button box-register-btn">Register</button></a>
-
+        <input class="textBox k-textbox" id="password" type="password" placeholder="Password">
+        <button class="k-button box-login-btn">Login</button>
+        <!--        <a href="/register"><button class="k-button box-register-btn">Register</button></a>-->
     </div>
 
-</body>
-<script type="text/javascript">
-    (function($, d) {
-        var DOM = {
-                loginButton: $('.loginButton'),
-                loginBox: $('#login-box'),
-                back: $('.back'),
-                closeBtn: $('.login-close')
 
-            },
-            Functions = {
-                showBox: function(event) {
-                    console.log('asdfkasjbdf');
-                    DOM.back.css('z-index', '2');
-                    DOM.back.css('background', 'rgba(0, 0, 0, 0.5)');
-                    DOM.loginBox.css('visibility', 'visible');
+    <script type="text/javascript">
+        (function($, d) {
+            var DOM = {
+                    loginButton: $('.loginButton'),
+                    loginBox: $('#login-box'),
+                    back: $('.back'),
+                    closeBtn: $('.login-close')
+
                 },
-                closeBox: function(event) {
-                    console.log('asdf');
-                    DOM.back.css('z-index', '-1');
-                    DOM.back.css('background', 'rgba(255, 255, 255, 1)');
-                    DOM.loginBox.css('visibility', 'hidden');
+                Functions = {
+                    showBox: function(event) {
+                        console.log('asdfkasjbdf');
+                        DOM.back.css('z-index', '2');
+                        DOM.back.css('background', 'rgba(0, 0, 0, 0.5)');
+                        DOM.loginBox.css('visibility', 'visible');
+                    },
+                    closeBox: function(event) {
+                        console.log('asdf');
+                        DOM.back.css('z-index', '-1');
+                        DOM.back.css('background', 'rgba(255, 255, 255, 1)');
+                        DOM.loginBox.css('visibility', 'hidden');
 
+                    }
                 }
-            }
-        $(d).ready(function() {
-            DOM.loginButton.on('click', Functions.showBox);
-            DOM.closeBtn.on('click', Functions.closeBox);
-        });
-    })(jQuery, document);
+            $(d).ready(function() {
+                DOM.loginButton.on('click', Functions.showBox);
+                DOM.closeBtn.on('click', Functions.closeBox);
+            });
+        })(jQuery, document);
 
-</script>
-<script type="text/javascript" src="javascripts/script.js"></script>
+    </script>
+    <script type="text/javascript" src="javascripts/script.js"></script>
+</body>
 
 </html>

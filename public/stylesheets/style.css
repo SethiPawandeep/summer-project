@@ -15,23 +15,30 @@ body.register {
     min-height: 650px;
 }
 
-.show-at-middle {
+.middleBox {
     position: absolute;
     width: 100%;
     top: 50%;
     margin-top: -150px;
 }
 
-#nic-logo {
+.middleBox img {
     display: block;
     margin: auto;
-    width: 40%;
+    width: 40vw;
 }
 
-.show-at-middle #login-heading {
+.middleBox h1 {
     font-size: 2.5em;
     padding: 2em;
     text-align: center;
+}
+
+.loginButton {
+    position: relative;
+    left: 50vw;
+    margin-left: -40vw;
+    width: 80vw;
 }
 
 .navIcon {
@@ -44,7 +51,6 @@ body.register {
 
 .navbar {
     background: rgba(0, 0, 0, 0.5);
-    /*    background: #BBB;*/
     height: 100%;
     left: 0;
     margin-left: -300px;
@@ -58,22 +64,19 @@ body.register {
 
 .navbar ul {
     list-style: none;
-    width: 100%;
 }
 
-.navbar ul a {
-    color: black;
-    text-decoration: none;
-}
-
-.navbar ul a li {
-    font-size: 2em;
-    padding: 10px 0 10px 20px;
-}
-
-.navbar ul a li:hover {
+.navbar li:hover {
     background: #CCC;
     cursor: pointer;
+}
+
+.navbar a {
+    display: block;
+    font-size: 2em;
+    padding: 10px 0 10px 20px;
+    text-decoration: none;
+    color: black;
 }
 
 .closeButton {
@@ -120,13 +123,6 @@ label {
 
 form>ul {
     list-style: none;
-}
-
-.loginButton {
-    position: relative;
-    left: 50vw;
-    margin-left: -40vw;
-    width: 80vw;
 }
 
 .registerButton {
