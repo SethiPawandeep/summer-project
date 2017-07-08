@@ -18,7 +18,7 @@ body.register {
 .middleBox {
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: 40%;
     margin-top: -150px;
 }
 
@@ -34,11 +34,38 @@ body.register {
     text-align: center;
 }
 
-.loginButton {
-    position: relative;
+.k-button {
+    border-radius: 4px;
+}
+
+.loginButton,
+.boxLoginButton,
+.boxRegisterButton {
+    box-shadow: none;
+    display: block;
     left: 50vw;
-    margin-left: -40vw;
-    width: 80vw;
+    margin-left: -45vw;
+    margin-top: 20px;
+    position: relative;
+    width: 90vw;
+}
+
+.boxRegisterButton {
+    background: white;
+    border: 1px solid #888;
+}
+
+.boxRegisterButton:hover,
+.boxRegisterButton:active {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #888;
+}
+
+.loginButton:hover,
+.boxLoginButton:hover {
+    background: #3f51b5;
+    box-shadow: none;
 }
 
 .navIcon {
@@ -116,7 +143,18 @@ label {
     color: #444;
 }
 
+.k-textbox {
+    width: 100%;
+    border: 1px solid #CCC;
+}
+
 .textBox {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #CCC;
+}
+
+.selectClass {
     width: 100%;
     border: 1px solid #CCC;
 }
