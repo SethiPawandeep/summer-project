@@ -15,49 +15,6 @@
     <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-
-    <style>
-        #loginBox header {
-            background: #5c6bc0;
-            width: 100%;
-            font-size: 1.3em;
-            text-align: center;
-            color: white;
-            padding: 10px;
-            text-transform: uppercase;
-        }
-        
-        #loginBox {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: white;
-            margin-top: 100%;
-            transition: .7s linear;
-        }
-        
-        .loginBoxClose {
-            position: absolute;
-            z-index: 1;
-            font-size: 2em;
-            top: 5px;
-            right: 20px;
-            color: white;
-            cursor: pointer;
-        }
-        
-        #loginBox .textBox {
-            outline: none;
-            padding: 20px 10px;
-            font-size: 1.2em;
-            text-align: center;
-            border: 0;
-            border-bottom: 1px solid #CCC;
-        }
-
-    </style>
-
 </head>
 
 <body class="login">
@@ -87,41 +44,13 @@
         <header>Login</header>
         <span class="loginBoxClose">&lt;</span>
         <form>
-            <input class="textBox" id="empName" name="empName" type="text" placeholder="Name">
-            <input class="textBox" id="password" name="password" type="password" placeholder="Password">
+            <input class="textBox" id="empName" name="empName" type="text" placeholder="Name" required>
+            <input class="textBox" id="password" name="password" type="password" placeholder="Password" required>
             <button class="k-button k-primary boxLoginButton" type="submit" formmethod="post" formaction="/login">Login</button>
-            <button class="k-button boxRegisterButton"><a href="/register">Register</a></button>
         </form>
+            <button class="k-button boxRegisterButton"><a href="/register">Register</a></button>
     </div>
 
-
-    <script type="text/javascript">
-        (function($, d) {
-            var DOM = {
-                    loginButton: $('.loginButton'),
-                    loginBox: $('#loginBox'),
-                    loginBoxClose: $('.loginBoxClose'),
-                    boxRegisterButton: $('.boxRegisterButton')
-                },
-                Functions = {
-                    showBox: function(event) {
-                        DOM.loginBox.css('margin-top', 0);
-                    },
-                    closeBox: function(event) {
-                        console.log('clicked');
-                        DOM.loginBox.css('margin-top', '100%');
-                    }
-                }
-            $(d).ready(function() {
-                DOM.loginButton.on('click', Functions.showBox);
-                DOM.loginBoxClose.on('click', Functions.closeBox);
-                /*             DOM.boxRegisterButton.on('click', function(event) {
-                                 console.log('clicked');
-                             });*/
-            });
-        })(jQuery, document);
-
-    </script>
     <script type="text/javascript" src="javascripts/script.js"></script>
 </body>
 

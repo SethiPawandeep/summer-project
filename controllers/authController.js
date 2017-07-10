@@ -54,4 +54,8 @@ exports.registerPOST = function (req, res) {
             }
         });
     }
-}
+};
+
+exports.loginPOST = function(req, res) {
+    console.log(req.body);
+};

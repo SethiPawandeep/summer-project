@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
     <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
@@ -36,15 +38,16 @@
         </div>
     </header>
     <div class="registerForm">
+        <div class="error"><span class="exclamation">!</span>Password and Confirm Password do not match.</div>
         <form action="/register" method="post">
             <ul>
                 <li>
                     <label for="empId">Employee Id</label>
-                    <input class="k-textbox" id="empId" type="text" placeholder="0000" name="empId">
+                    <input class="k-textbox" id="empId" type="text" placeholder="0000" name="empId" required>
                 </li>
                 <li>
                     <label for="empName">Name</label>
-                    <input class="textBox k-textbox" id="empName" type="text" placeholder="Name" name="empName">
+                    <input class="textBox k-textbox" id="empName" type="text" placeholder="Name" name="empName" required>
                 </li>
                 <li>
                     <label for="designation">Designation</label>
@@ -57,11 +60,11 @@
                 </li>
                 <li>
                     <label for="password">Password</label>
-                    <input class="textBox k-textbox" id="password" type="password" placeholder="At least 6 characters long" name="password">
+                    <input class="textBox k-textbox" id="password" type="password" placeholder="At least 6 characters long" name="password" required>
                 </li>
                 <li>
                     <label for="confirmPassword">Confirm Password</label>
-                    <input class="textBox k-textbox" id="confirmPassword" type="password" placeholder="Re-enter password">
+                    <input class="textBox k-textbox" id="confirmPassword" type="password" placeholder="Re-enter password" required>
                 </li>
                 <li>
                     <div class="g-recaptcha captchaStyle" data-sitekey="6Lfd_ycUAAAAAC83sUyFOoADW08cE2QV-eFo5t4a"></div>
