@@ -12,6 +12,7 @@ body {
 }
 
 body.register {
+    /*    transition: .5s ease;*/
     min-height: 650px;
 }
 
@@ -36,6 +37,12 @@ body.register {
 
 .k-button {
     border-radius: 4px;
+}
+
+.boxRegisterButton a {
+    text-decoration: none;
+    display: block;
+    color: black;
 }
 
 .loginButton,
@@ -68,16 +75,33 @@ body.register {
     box-shadow: none;
 }
 
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background: #3f51b5;
+    padding: 14px;
+    text-align: center;
+}
+
+header h2 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
 .navIcon {
     position: fixed;
-    top: 20px;
+    top: 10px;
+    color: white;
+    font-weight: 900;
     left: 20px;
     cursor: pointer;
     font-size: 1.4em;
 }
 
 .navbar {
-    background: rgba(0, 0, 0, 0.5);
+    background: #3c415b;
     height: 100%;
     left: 0;
     margin-left: -300px;
@@ -89,8 +113,23 @@ body.register {
     z-index: 1;
 }
 
+.navbar div {
+    position: absolute;
+    width: 100%;
+    font-size: 1.2em;
+    background: #2a2d40;
+    padding: 14px;
+    height: 48px;
+    top: 0;
+    left: 0;
+}
+
 .navbar ul {
     list-style: none;
+}
+
+.navbar li {
+    border-bottom: 1px solid #CCC;
 }
 
 .navbar li:hover {
@@ -99,18 +138,20 @@ body.register {
 }
 
 .navbar a {
+    text-align: left;
     display: block;
-    font-size: 2em;
-    padding: 10px 0 10px 20px;
+    font-size: 1.6em;
+    padding: 17px 0 17px 20px;
     text-decoration: none;
-    color: black;
+    color: #fff;
 }
 
 .closeButton {
     position: absolute;
     font-size: 2.4em;
     cursor: pointer;
-    top: 10px;
+    top: 5px;
+    color: white;
     right: 20px;
 }
 
@@ -126,7 +167,7 @@ body.register {
     height: auto;
     left: 50%;
     margin-left: -200px;
-    margin-top: -278px;
+    margin-top: -260px;
     padding: 20px;
     position: absolute;
     width: 400px;

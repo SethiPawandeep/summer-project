@@ -16,11 +16,13 @@
             },
             closeNav: function (event) {
                 DOM.navbar.css('margin-left', '-300px');
+//                DOM.body.css('margin-left', 0);
                 DOM.navIcon.css('visibility', 'visible');
             },
             openNav: function (event) {
                 console.log('Clicked');
                 DOM.navbar.css('margin-left', '0');
+//                DOM.body.css('margin-left', '300px');
                 DOM.navIcon.css('visibility', 'hidden');
             }
         };

@@ -37,8 +37,9 @@
             transition: .7s linear;
         }
         
-        #loginBox span {
+        .loginBoxClose {
             position: absolute;
+            z-index: 1;
             font-size: 2em;
             top: 5px;
             right: 20px;
@@ -54,6 +55,7 @@
             border: 0;
             border-bottom: 1px solid #CCC;
         }
+
     </style>
 
 </head>
@@ -62,7 +64,12 @@
 
     <header>
         <span class="navIcon">&#9776;</span>
+        <h2>NIC | Night Duty</h2>
+
         <div class="navbar">
+            <div>
+                <h2>NIC</h2>
+            </div>
             <span class="closeButton">&times;</span>
             <ul>
                 <li><a href="/about">About</a></li>
@@ -78,11 +85,13 @@
 
     <div id="loginBox">
         <header>Login</header>
-        <span>&lt;</span>
-        <input class="textBox" id="emp-name" type="text" placeholder="Name">
-        <input class="textBox" id="password" type="password" placeholder="Password">
-        <button class="k-button k-primary boxLoginButton">Login</button>
-        <button class="k-button boxRegisterButton">Register</button>
+        <span class="loginBoxClose">&lt;</span>
+        <form>
+            <input class="textBox" id="empName" name="empName" type="text" placeholder="Name">
+            <input class="textBox" id="password" name="password" type="password" placeholder="Password">
+            <button class="k-button k-primary boxLoginButton" type="submit" formmethod="post" formaction="/login">Login</button>
+            <button class="k-button boxRegisterButton"><a href="/register">Register</a></button>
+        </form>
     </div>
 
 
@@ -91,7 +100,7 @@
             var DOM = {
                     loginButton: $('.loginButton'),
                     loginBox: $('#loginBox'),
-                    loginBoxClose: $('#loginbox span'),
+                    loginBoxClose: $('.loginBoxClose'),
                     boxRegisterButton: $('.boxRegisterButton')
                 },
                 Functions = {
@@ -106,11 +115,12 @@
             $(d).ready(function() {
                 DOM.loginButton.on('click', Functions.showBox);
                 DOM.loginBoxClose.on('click', Functions.closeBox);
-                DOM.boxRegisterButton.on('click', function(event) {
-                    console.log('clicked');
-                });
+                /*             DOM.boxRegisterButton.on('click', function(event) {
+                                 console.log('clicked');
+                             });*/
             });
         })(jQuery, document);
+
     </script>
     <script type="text/javascript" src="javascripts/script.js"></script>
 </body>
