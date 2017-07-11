@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+function checkLogin(req, res, next) {
+    if (req.session && req.session.username) {
+        res.render('index');
+    } else {
+        next();
+    }
+}
+
+router.get('/', checkLogin, function (req, res) {
+    res.render('login');
 });
 
 module.exports = router;

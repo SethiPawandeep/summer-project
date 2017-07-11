@@ -17,9 +17,8 @@ var db = pgp(credentials);
 exports.registerPOST = function (req, res) {
     console.log('registerPOST');
     console.log(req.body);
-    console.log('alsdufhasdf');
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
-        return res.jspn({
+        return res.json({
             'responseCode': 1,
             'responseDesc': 'Please select captcha'
         });

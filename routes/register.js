@@ -3,7 +3,7 @@ var router = express.Router();
 
 var registerController = require('../controllers/authController');
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     res.render('register');
 });
 

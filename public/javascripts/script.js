@@ -12,7 +12,9 @@
             boxRegisterButton: $('.boxRegisterButton'),
             password: $('#password'),
             confirmPassword: $('#confirmPassword'),
-            errorBox: $('.error')
+            errorBox: $('.error'),
+            errorMessage: $('.errorMessage'),
+            registerForm: $('.registerForm form')
         },
         Functions = {
             checkClick: function (event) {
@@ -22,17 +24,28 @@
                 }
             },
             checkPassword: function (event) {
-                console.log('huasdf');
-                if(DOM.password.val() === DOM.confirmPassword.val()) {
+                if (DOM.password.val() !== DOM.confirmPassword.val()) {
+                    Variables.formCorrect = false;
+                    DOM.errorBox.css('position', 'static');
+                    DOM.errorBox.css('visibility', 'visible');
+                    DOM.errorMessage.html('Password and Confirm Password do not match.');
+                } else {
                     DOM.errorBox.css('position', 'absolute');
                     DOM.errorBox.css('visibility', 'hidden');
                     DOM.body.css('min-height', '650px');
-                    Variables.passwordMatch = true;
-                } else {
-                    Variables.passwordMatch = false;
+                    Variables.formCorrect = true;
+                }
+            },
+            checkPasswordLength: function (event) {
+                if (DOM.password.val().length < 6) {
                     DOM.errorBox.css('position', 'static');
                     DOM.errorBox.css('visibility', 'visible');
-//                    DOM.body.css('min-height', '680px');
+                    DOM.errorMessage.html('Enter at least 6 characters');
+                    Variables.formCorrect = false;
+                } else {
+                    DOM.errorBox.css('position', 'absolute');
+                    DOM.errorBox.css('visibility', 'hidden');
+                    Variables.formCorrect = true;
                 }
             },
             closeNav: function (event) {
@@ -44,17 +57,18 @@
                 DOM.navbar.css('margin-left', '0');
                 DOM.navIcon.css('visibility', 'hidden');
             },
+            submitRegisterForm: function(event) {
+                
+            },
             showBox: function (event) {
-                console.log('asdf');
                 DOM.loginBox.css('margin-top', 0);
             },
             closeBox: function (event) {
-                console.log('clicked');
                 DOM.loginBox.css('margin-top', '100%');
             }
         },
         Variables = {
-            passwordMatch: false
+            formCorrect: false
         };
 
     $(document).ready(function () {
@@ -68,6 +82,9 @@
         DOM.loginButton.on('click', Functions.showBox);
         DOM.loginBoxClose.on('click', Functions.closeBox);
         DOM.confirmPassword.on('blur', Functions.checkPassword);
+        DOM.password.on('blur', Functions.checkPasswordLength)
+        console.log(DOM.registerForm);
+        DOM.registerForm.submit(Functions.submitRegisterForm);
     });
 
 })(jQuery, document);

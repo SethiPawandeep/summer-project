@@ -25,20 +25,21 @@ body.register {
 }
 
 .error {
-    color: #D8000C;
     background-color: #FFBABA;
+    color: #D8000C;
     padding: 4px;
-    visibility: hidden;
     position: absolute;
+    visibility: hidden;
 }
 
-.error span {
-    margin-right: 10px;
-    border-radius: 50%;
-    padding: 4px 10px;
+.error .exclamation {
     border: 1px solid #D8000C;
+    border-radius: 50%;
     font-weight: 600;
+    margin-right: 10px;
+    padding: 4px 10px;
 }
+
 
 /*Globals / Form */
 
@@ -48,12 +49,12 @@ form>ul {
 
 label {
     display: block;
-    text-transform: uppercase;
+    color: #444;
     font-size: 12px;
     font-weight: bold;
     padding-bottom: 1em;
     padding-top: 1em;
-    color: #444;
+    text-transform: uppercase;
 }
 
 .k-button {
@@ -61,47 +62,48 @@ label {
 }
 
 .k-textbox {
-    width: 100%;
     border: 1px solid #CCC;
+    width: 100%;
 }
 
 .textBox {
+    border: 1px solid #CCC;
     padding: 10px;
     width: 100%;
-    border: 1px solid #CCC;
 }
 
 .selectClass {
-    width: 100%;
     border: 1px solid #CCC;
+    width: 100%;
 }
 
 
 /*Globals / Header, Navbar*/
 
 header {
+    background: #3f51b5;
+    height: 49px;
+    padding: 14px;
     position: fixed;
+    text-align: center;
     width: 100%;
     z-index: 1;
-    background: #3f51b5;
-    padding: 14px;
-    text-align: center;
 }
 
 header h2 {
     color: white;
-    font-weight: 500;
     font-size: 1.2em;
+    font-weight: 500;
 }
 
 .navIcon {
-    position: fixed;
-    top: 10px;
     color: white;
-    font-weight: 900;
-    left: 20px;
     cursor: pointer;
     font-size: 1.4em;
+    font-weight: 900;
+    left: 20px;
+    position: fixed;
+    top: 10px;
 }
 
 .navbar {
@@ -118,14 +120,15 @@ header h2 {
 }
 
 .navbar div {
-    position: absolute;
-    width: 100%;
-    font-size: 1.2em;
     background: #2a2d40;
-    padding: 14px;
-    height: 48px;
-    top: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: 49px;
     left: 0;
+    padding: 14px;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .navbar ul {
@@ -142,21 +145,21 @@ header h2 {
 }
 
 .navbar a {
-    text-align: left;
+    color: #fff;
     display: block;
     font-size: 1.6em;
     padding: 17px 0 17px 20px;
+    text-align: left;
     text-decoration: none;
-    color: #fff;
 }
 
 .closeButton {
-    position: absolute;
-    font-size: 2.4em;
-    cursor: pointer;
-    top: 5px;
     color: white;
+    cursor: pointer;
+    font-size: 2.4em;
     right: 20px;
+    position: absolute;
+    top: 5px;
 }
 
 
@@ -164,9 +167,9 @@ header h2 {
 
 .middleBox {
     position: absolute;
-    width: 100%;
-    top: 40%;
     margin-top: -150px;
+    top: 40%;
+    width: 100%;
 }
 
 .middleBox img {
@@ -185,32 +188,32 @@ header h2 {
 /*Login page / Login Box*/
 
 #loginBox {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
     background: white;
+    height: 100%;
     margin-top: 100%;
+    position: fixed;
     transition: .7s linear;
+    width: 100%;
+    z-index: 1;
 }
 
 #loginBox header {
-    width: 100%;
-    font-size: 1.2em;
-    text-align: center;
     color: white;
-    padding: 10px;
+    font-size: 1.2em;
     margin-bottom: 100px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 .loginBoxClose {
-    position: absolute;
-    z-index: 1;
-    font-size: 2em;
-    top: 5px;
-    right: 20px;
     color: white;
     cursor: pointer;
+    font-size: 2em;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    z-index: 1;
 }
 
 #loginBox form {
@@ -218,18 +221,18 @@ header h2 {
 }
 
 #loginBox .textBox {
-    outline: none;
-    padding: 20px 10px;
-    font-size: 1.2em;
-    text-align: center;
     border: 0;
     border-bottom: 1px solid #CCC;
+    font-size: 1.2em;
+    outline: none;
+    padding: 20px 10px;
+    text-align: center;
 }
 
 .boxRegisterButton a {
-    text-decoration: none;
-    display: block;
     color: black;
+    display: block;
+    text-decoration: none;
 }
 
 .loginButton,
@@ -252,8 +255,8 @@ header h2 {
 .boxRegisterButton:hover,
 .boxRegisterButton:active {
     background: white;
-    box-shadow: none;
     border: 1px solid #888;
+    box-shadow: none;
 }
 
 .loginButton:hover,
@@ -263,10 +266,10 @@ header h2 {
 }
 
 .captchaStyle {
-    position: relative;
     left: 50%;
     margin-left: -156px;
     margin-top: 1em;
+    position: relative;
 }
 
 .registerForm {
@@ -277,8 +280,8 @@ header h2 {
     margin-top: -260px;
     padding: 20px;
     position: absolute;
-    width: 400px;
     top: 50%;
+    width: 400px;
 }
 
 .registerButton {
