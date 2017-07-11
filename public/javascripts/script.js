@@ -1,20 +1,21 @@
 (function ($, d) {
     var DOM = {
             body: $('body'),
+            boxRegisterButton: $('.boxRegisterButton'),
             closeButton: $('.closeButton'),
+            confirmPassword: $('#confirmPassword'),
             designationList: $('#designation'),
             empId: $('#empId'),
-            navbar: $('.navbar'),
-            navIcon: $('.navIcon'),
-            loginButton: $('.loginButton'),
-            loginBox: $('#loginBox'),
-            loginBoxClose: $('.loginBoxClose'),
-            boxRegisterButton: $('.boxRegisterButton'),
-            password: $('#password'),
-            confirmPassword: $('#confirmPassword'),
             errorBox: $('.error'),
             errorMessage: $('.errorMessage'),
-            registerForm: $('.registerForm form')
+            loginBox: $('#loginBox'),
+            loginBoxClose: $('.loginBoxClose'),
+            loginButton: $('.loginButton'),
+            navbar: $('.navbar'),
+            navIcon: $('.navIcon'),
+            password: $('#password'),
+            registerForm: $('.registerForm form'),
+            captcha: $('.g-recaptcha')
         },
         Functions = {
             checkClick: function (event) {
@@ -57,8 +58,40 @@
                 DOM.navbar.css('margin-left', '0');
                 DOM.navIcon.css('visibility', 'hidden');
             },
-            submitRegisterForm: function(event) {
-                
+            submitRegisterForm: function (event) {
+                if (Variables.formCorrect === true) {
+                    $.post($(this).attr('action'), $(this).serialize(), function (json) {
+                        console.log(json);
+                        if (json.responseCode === 1) {
+                            DOM.errorBox.css('position', 'absolute');
+                            DOM.errorBox.css('visibility', 'visible');
+                            DOM.errorMessage.html('Please select captcha');
+                            DOM.password.val('');
+                            DOM.confirmPassword.val('');
+                            return false;
+                        } else if (json.responseCode === 2) {
+                            DOM.errorBox.css('position', 'absolute');
+                            DOM.errorBox.css('visibility', 'visible');
+                            DOM.errorMessage.html('Failed Captcha Verification. Refreshing page in 5s.');
+                            setTimeout(function () {
+                                location.reload();
+                            }, 10000);
+                        } else if (json.responseCode == 23505) {
+                            DOM.errorBox.css('position', 'absolute');
+                            DOM.errorBox.css('visibility', 'visible');
+                            DOM.errorMessage.html('User with Employee ID already exists.');
+                            return false;
+                        } else {
+                            console.log('yahaan aa gaye');
+                            window.location.replace('http://localhost:3000');
+                        }
+                        console.log('function me');
+
+                    }, 'json');
+                } else {
+                    return false;
+                }
+                return false;
             },
             showBox: function (event) {
                 DOM.loginBox.css('margin-top', 0);
@@ -82,9 +115,9 @@
         DOM.loginButton.on('click', Functions.showBox);
         DOM.loginBoxClose.on('click', Functions.closeBox);
         DOM.confirmPassword.on('blur', Functions.checkPassword);
-        DOM.password.on('blur', Functions.checkPasswordLength)
-        console.log(DOM.registerForm);
+        DOM.password.on('blur', Functions.checkPasswordLength);
         DOM.registerForm.submit(Functions.submitRegisterForm);
+
     });
 
 })(jQuery, document);

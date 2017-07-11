@@ -229,7 +229,11 @@ header h2 {
     text-align: center;
 }
 
-.boxRegisterButton a {
+a {
+    text-decoration: none;
+}
+
+a .boxRegisterButton {
     color: black;
     display: block;
     text-decoration: none;

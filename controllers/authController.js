@@ -32,9 +32,12 @@ exports.registerPOST = function (req, res) {
             console.log(body);
             if (body.success !== undefined && !body.success) {
                 console.log('if');
-                res.render('register');
+                return res.json({
+                    'responseCode': 2,
+                    'responseDesc': 'Failed captcha verification'
+                });
             } else {
-                console.log(req.body)
+                console.log(req.body);
                 var user = req.body;
                 bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(user.password, salt, function (err, hash) {
@@ -42,11 +45,19 @@ exports.registerPOST = function (req, res) {
                         db.any('INSERT INTO nicuser (empId, name, designation, password) values($1, $2, $3, $4)', [user.empId, user.empName, user.designation, hash]).then(function (data) {
                             console.log('Query successful');
                             console.log(data);
-                            res.redirect('/');
+                            res.json({
+                                'responseCode': 200,
+                                'responseDesc': 'Successfully Submitted'
+                            });
                         }, function (err) {
                             console.log('Error: ');
                             console.log(err);
-                            res.render('register');
+                            if (err.code == '23505') {
+                                res.json({
+                                    'responseCode': err.code,
+                                    'responseDesc': 'unique key error'
+                                });
+                            }
                         });
                     });
                 });
@@ -55,6 +66,9 @@ exports.registerPOST = function (req, res) {
     }
 };
 
-exports.loginPOST = function(req, res) {
-    console.log(req.body);
+exports.loginPOST = function (req, res) {
+    var user = req.body;
+    console.log('Login post');
+    console.log(user);
+
 };
