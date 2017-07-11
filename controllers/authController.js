@@ -70,5 +70,24 @@ exports.loginPOST = function (req, res) {
     var user = req.body;
     console.log('Login post');
     console.log(user);
-
+    db.one('SELECT * FROM nicuser WHERE empid=$1',[user.empName]).then(function(data) {
+        bcrypt.compare(user.password, data.password, function(err, passMatch) {
+            if(err) {
+                console.log('Credentials do not match.');
+                res.render('login');
+            }
+            if(passMatch === true) {
+                console.log('Credentials match');
+            /*Create Session*/    
+                res.render('index');
+            } else {
+                console.log('Credentials do not match');
+                res.render('login');
+            }
+        });
+    }, function(err) {
+        console.log('Error: ');
+        console.log(err);
+        res.render('login');
+    })
 };
