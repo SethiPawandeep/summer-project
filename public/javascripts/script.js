@@ -17,7 +17,8 @@
             registerForm: $('.registerForm form'),
             captcha: $('.g-recaptcha'),
             updateForm: $('.welcome form'),
-            address: $('#address')
+            address: $('#address'),
+            create: $('.create form')
         },
         Functions = {
             checkClick: function (event) {
@@ -143,6 +144,10 @@
                             position: myCenter
                         });
                         marker.setMap(map);
+                        console.log(DOM.create);
+                        DOM.create.append($('<input type="text" value="' + coords.lat + '" name="lat" hidden>'));
+                        DOM.create.append($('<input type="text" value="' + coords.long + '" name="long" hidden>'));
+                        console.log(DOM.create);
 
                     },
                     error: function (res, status, xhr) {

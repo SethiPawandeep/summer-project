@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//var 
+var createController = require('../../controllers/createController');
 
 function checkLogin(req, res, next) {
     if (req.session && req.session.empId) {
@@ -16,6 +16,6 @@ router.get('/', checkLogin, function (req, res, next) {
     res.redirect('/');
 });
 
-//router.post('/', )
+router.post('/', createController.create);
 
 module.exports = router;
