@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var login = require('./routes/auth/login');
 var logout = require('./routes/auth/logout');
 var admin = require('./routes/admin/index');
+var profile = require('./routes/profile');
 var app = express();
 
 // view engine setup
@@ -39,6 +40,7 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/admin', admin);
+app.use('/profile', profile);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

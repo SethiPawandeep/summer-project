@@ -81,6 +81,9 @@ exports.loginPOST = function (req, res) {
                 req.session.empId = data.empid;
                 req.session.empName = data.name;
                 req.session.designation = data.designation;
+                req.session.cookie.maxAge = 24 * 60 * 60 * 1000 * 365;
+                console.log(req.session);
+                console.log(req.session.cookie);
                 if (data.empid == '1997') {
                     console.log('true');
                     req.session.isAdmin = true;

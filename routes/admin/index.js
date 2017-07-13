@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 function checkLogin(req, res, next) {
-    console.log(req.session);
-    console.log('ADMIN PANEL');
     if (req.session && req.session.empId) {
-        console.log('if');
-        res.render('adminPanel/index', {
-            name: req.session.empName,
-            designation: req.session.designation,
-        });
+        if (req.session.isAdmin == false) {
+            res.redirect('/');
+        } else {
+            res.render('adminPanel/index', {
+                name: req.session.empName,
+                designation: req.session.designation,
+            });
+        }
     } else {
         next();
     }

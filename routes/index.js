@@ -3,7 +3,13 @@ var router = express.Router();
 
 function checkLogin(req, res, next) {
     if (req.session && req.session.empId) {
-        res.render('index', {name: req.session.empName});
+        if (req.session.isAdmin) {
+            res.redirect('/admin');
+        } else {
+            res.render('index', {
+                name: req.session.empName
+            });
+        }
     } else {
         next();
     }
