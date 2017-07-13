@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 function checkLogin(req, res, next) {
-    if (req.session && req.session.username) {
-        res.render('index');
+    if (req.session && req.session.empId) {
+        res.render('index', {name: req.session.empName});
     } else {
         next();
     }

@@ -78,8 +78,9 @@ exports.loginPOST = function (req, res) {
             }
             if(passMatch === true) {
                 console.log('Credentials match');
-            /*Create Session*/    
-                res.render('index');
+                req.session.empId = data.empid;
+                req.session.empName = data.name;
+                res.redirect('/');
             } else {
                 console.log('Credentials do not match');
                 res.render('login');
