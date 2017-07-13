@@ -5,6 +5,7 @@
 
 * {
     box-sizing: border-box;
+    /*    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;*/
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -40,6 +41,35 @@ body.register {
     padding: 4px 10px;
 }
 
+.welcome {
+    position: relative;
+    left: 50%;
+    margin-left: -186px;
+    margin-top: 100px;
+}
+
+.welcome h3 {
+    font-size: 1.4em;
+}
+
+.designation {
+    font-style: italic;
+    color: grey;
+}
+
+.main {
+    margin-top: 100px;
+}
+
+.main .k-button {
+    position: relative;
+    margin-top: 20px;
+    width: 250px;
+    display: block;
+    left: 50%;
+    margin-left: -125px;
+    
+}
 
 /*Globals / Form */
 

@@ -1,0 +1,47 @@
+<!DOCtype html>
+<html>
+
+<head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+
+<body class="adminHome">
+    <header>
+        <span class="navIcon">&#9776;</span>
+        <h2>NIC | Night Duty</h2>
+
+        <div class="navbar">
+            <div>
+                <h2>NIC</h2>
+            </div>
+            <span class="closeButton">&times;</span>
+            <ul>
+                <li><a href="/admin">Home</a></li>
+                <li><a href="/about">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="welcome">
+        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
+    </div>
+    <div class="main">
+        <a href="/createCenter" class="k-button k-primary">Create Center</a>
+        <a href="/location" class="k-button k-primary">Location for verification</a>
+    </div>
+    <script type="text/javascript" src="javascripts/script.js"></script>
+</body>
+
+</html>
