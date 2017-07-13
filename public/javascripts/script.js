@@ -13,10 +13,11 @@
             loginButton: $('.loginButton'),
             navbar: $('.navbar'),
             navIcon: $('.navIcon'),
-            password: $('#password'),
+            password: $('.registerForm #password'),
             registerForm: $('.registerForm form'),
             captcha: $('.g-recaptcha'),
-            updateForm: $('.welcome form')
+            updateForm: $('.welcome form'),
+            address: $('#address')
         },
         Functions = {
             checkClick: function (event) {
@@ -108,7 +109,7 @@
                         designation: $('#designation').val()
                     },
                     success: function (responseData, status, xhr) {
-                        if(responseData.a == true)
+                        if (responseData.a == true)
                             window.location.replace('http://localhost:3000');
                     },
                     error: function (res, status, xhr) {
@@ -116,6 +117,39 @@
                     }
                 });
                 return false;
+            },
+            showMap: function (event) {
+                /*https://maps.googleapis.com/maps/api/geocode/json?address=Shastri%20Park,%20New%20Delhi&key=AIzaSyBdExNx7DlcAvqDz7c3-UtABFC0Nv6RWN8*/
+                var address = DOM.address.val();
+                var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBdExNx7DlcAvqDz7c3-UtABFC0Nv6RWN8";
+                $.ajax({
+                    type: 'post',
+                    url: url,
+                    success: function (responseData, status, xhr) {
+                        var coords = {};
+                        console.log(responseData["results"][0]["geometry"]["location"]);
+                        console.log(responseData);
+                        coords.lat = responseData["results"][0]["geometry"]["location"].lat;
+                        coords.long = responseData["results"][0]["geometry"]["location"].lng;
+                        console.log(coords.lat, coords.long);
+                        var myCenter = new google.maps.LatLng(coords.lat, coords.long);
+                        var mapCanvas = document.getElementById("map");
+                        var mapOptions = {
+                            center: myCenter,
+                            zoom: 15
+                        };
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                        var marker = new google.maps.Marker({
+                            position: myCenter
+                        });
+                        marker.setMap(map);
+
+                    },
+                    error: function (res, status, xhr) {
+                        alert('ERROR!');
+                    }
+                });
+
             }
         },
         Variables = {
@@ -139,6 +173,7 @@
         DOM.password.on('blur', Functions.checkPasswordLength);
         DOM.registerForm.submit(Functions.submitRegisterForm);
         DOM.updateForm.submit(Functions.submitUpdateForm);
+        DOM.address.on('blur', Functions.showMap);
     });
 
 })(jQuery, document);

@@ -34,15 +34,29 @@
             </ul>
         </div>
     </header>
-    <div class="welcome">
-        <img src="images/boss.png">
-        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
-    </div>
-    <div class="main">
-        <a href="/create" class="k-button k-primary">Create Center</a>
-        <a href="/location" class="k-button k-primary">Location for verification</a>
+    <div class="create">
+        <div class="error"><span class="exclamation">!</span><span class="errorMessage"></span></div>
+        <form action="/register" method="post">
+            <ul>
+                <li>
+                    <label for="address">Address</label>
+                    <textarea class="textBox k-textbox" name="address" id="address" placeholder="Enter address of the new data center."></textarea>
+                </li>
+                <li>
+                    <div id="map" style="width: 360px; height: 200px;"></div>
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input class="textBox k-textbox" id="password" type="password" placeholder="Password" name="password" required>
+                </li>
+                <li>
+                    <button class="k-button k-primary registerButton">Register</button>
+                </li>
+            </ul>
+        </form>
     </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw39TMCLBtAlMEei3NQNTv1PPRM5LKIIA"></script>
 </body>
 
 </html>

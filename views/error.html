@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Admin</title>
+    <title>Error</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -15,9 +15,31 @@
     <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <style>
+        .notfound {
+            position: relative;
+            left: 50%;
+            top: 30%;
+            width: 400px;
+            margin-left: -200px;
+        }
+        
+        .notfound img {
+            position: relative;
+            margin-left: -64px;
+            left: 50%;
+        }
+        
+        .notfound h3 {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+    </style>
 </head>
 
-<body class="adminHome">
+<body>
     <header>
         <span class="navIcon">&#9776;</span>
         <h2>NIC | Night Duty</h2>
@@ -28,19 +50,13 @@
             </div>
             <span class="closeButton">&times;</span>
             <ul>
-                <li><a href="/admin">Home</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="/">Home</a></li>
             </ul>
         </div>
     </header>
-    <div class="welcome">
-        <img src="images/boss.png">
-        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
-    </div>
-    <div class="main">
-        <a href="/create" class="k-button k-primary">Create Center</a>
-        <a href="/location" class="k-button k-primary">Location for verification</a>
+    <div class="notfound">
+        <img src="images/warning.png">
+        <h3>404 not found.</h3>
     </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
 </body>
