@@ -1,19 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
+var updateController = require('../controllers/updateController');
+
 function checkLogin(req, res, next) {
-    console.log('reached here');
     if (req.session && req.session.empId) {
-        console.log('yahan');
-        res.render('profile');
+        res.render('profile', {
+            name: req.session.empName,
+            empId: req.session.empId,
+            designation: req.session.designation
+        });
     } else {
         next();
     }
 }
 
 router.get('/', checkLogin, function (req, res, next) {
-    console.log('NEXT');
     res.redirect('/');
 });
+
+router.post('/', updateController.updateDesignation);
 
 module.exports = router;

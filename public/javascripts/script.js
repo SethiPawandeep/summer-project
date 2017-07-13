@@ -15,7 +15,8 @@
             navIcon: $('.navIcon'),
             password: $('#password'),
             registerForm: $('.registerForm form'),
-            captcha: $('.g-recaptcha')
+            captcha: $('.g-recaptcha'),
+            updateForm: $('.welcome form')
         },
         Functions = {
             checkClick: function (event) {
@@ -85,8 +86,6 @@
                             console.log('yahaan aa gaye');
                             window.location.replace('http://localhost:3000');
                         }
-                        console.log('function me');
-
                     }, 'json');
                 } else {
                     return false;
@@ -98,10 +97,30 @@
             },
             closeBox: function (event) {
                 DOM.loginBox.css('margin-top', '100%');
+            },
+            submitUpdateForm: function (event) {
+                $.ajax({
+                    type: 'post',
+                    url: '/profile',
+                    data: {
+                        name: $('#empName').val(),
+                        empId: $('#empId').val(),
+                        designation: $('#designation').val()
+                    },
+                    success: function (responseData, status, xhr) {
+                        if(responseData.a == true)
+                            window.location.replace('http://localhost:3000');
+                    },
+                    error: function (res, status, xhr) {
+                        alert('Update Failed');
+                    }
+                });
+                return false;
             }
         },
         Variables = {
-            formCorrect: false
+            formCorrect: false,
+            hiddenDesignation: $('.hiddenDesignation').val() || 'Scientist A'
         };
 
     $(document).ready(function () {
@@ -110,14 +129,16 @@
         });
         DOM.body.on('click', Functions.checkClick);
         DOM.closeButton.on('click', Functions.closeNav);
-        DOM.designationList.kendoDropDownList();
+        DOM.designationList.kendoDropDownList({
+            value: Variables.hiddenDesignation
+        });
         DOM.navIcon.on('click', Functions.openNav);
         DOM.loginButton.on('click', Functions.showBox);
         DOM.loginBoxClose.on('click', Functions.closeBox);
         DOM.confirmPassword.on('blur', Functions.checkPassword);
         DOM.password.on('blur', Functions.checkPasswordLength);
         DOM.registerForm.submit(Functions.submitRegisterForm);
-
+        DOM.updateForm.submit(Functions.submitUpdateForm);
     });
 
 })(jQuery, document);

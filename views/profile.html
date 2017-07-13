@@ -1,6 +1,68 @@
 <!DOCtype html>
 <html>
+
 <head>
     <title>Profile</title>
-    </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+
+<body class="profile">
+    <header>
+        <span class="navIcon">&#9776;</span>
+        <h2>NIC | Night Duty</h2>
+
+        <div class="navbar">
+            <div>
+                <h2>NIC</h2>
+            </div>
+            <span class="closeButton">&times;</span>
+            <ul>
+                <li><a href="/admin">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="welcome">
+        <form>
+            <ul>
+                <li>
+                    <label for="empId">Employee Id</label>
+                    <input class="k-textbox" id="empId" type="text" value="<%= empId %>" name="empId" required disabled>
+                </li>
+                <li>
+                    <label for="empName">Name</label>
+                    <input class="textBox k-textbox" id="empName" type="text" value="<%= name %>" name="empName" required disabled>
+                </li>
+                <li>
+                    <input class="hiddenDesignation" value="<%= designation %>" hidden>
+                    <label for="designation">Designation</label>
+                    <select class="selectClass" id="designation" name="designation">
+                        <option>Scientist A</option>
+                        <option>Scientist B</option>
+                        <option>Scientist C</option>
+                        <option>Scientist D</option>
+                    </select>
+                </li>
+                <li>
+                    <button class="k-button k-primary registerButton">Update</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="javascripts/script.js"></script>
+</body>
+
 </html>

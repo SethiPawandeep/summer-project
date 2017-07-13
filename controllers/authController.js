@@ -1,18 +1,8 @@
-var pgp = require('pg-promise')({});
+var db = require('../dbConnect');
 var bcrypt = require('bcrypt');
 var request = require('request');
 
 var recaptchaCredentials = require('../recaptcha.js');
-
-var credentials = {
-    host: 'localhost',
-    port: 5000,
-    database: 'NIC_db',
-    user: 'postgres',
-    password: 'ips'
-};
-
-var db = pgp(credentials);
 
 exports.registerPOST = function (req, res) {
     console.log('registerPOST');

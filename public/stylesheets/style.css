@@ -70,6 +70,11 @@ body.register {
     color: grey;
 }
 
+body.profile .welcome {
+    width: 400px;
+    margin-left: -200px;
+}
+
 .main {
     margin-top: 50px;
 }
@@ -81,8 +86,8 @@ body.register {
     display: block;
     left: 50%;
     margin-left: -125px;
-    
 }
+
 
 /*Globals / Form */
 
