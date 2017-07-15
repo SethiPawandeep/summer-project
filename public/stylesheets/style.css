@@ -5,8 +5,8 @@
 
 * {
     box-sizing: border-box;
-    /*    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;*/
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+/*    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
     margin: 0;
     padding: 0;
 }
@@ -19,12 +19,10 @@ body {
 
 body.login {
     min-height: 100vh;
-    /*    min-height: 600px;*/
 }
 
 body.register {
     min-height: 100vh;
-    /*    min-height: 650px;*/
 }
 
 .error {
@@ -108,6 +106,7 @@ label {
 }
 
 .k-button {
+    font-size: 15px;
     border-radius: 4px;
 }
 
@@ -149,7 +148,7 @@ header h2 {
 .navIcon {
     color: white;
     cursor: pointer;
-    font-size: 1.4em;
+    font-size: 20px;
     font-weight: 900;
     left: 20px;
     position: fixed;
@@ -217,9 +216,9 @@ header h2 {
 
 .middleBox {
     position: absolute;
-    margin-top: -150px;
-    top: 40%;
+    top: 100px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .middleBox img {
@@ -229,7 +228,8 @@ header h2 {
 }
 
 .middleBox h1 {
-    font-size: 2.5em;
+    font-size: 32px;
+    font-weight: 400;
     padding: 2em;
     text-align: center;
 }
@@ -240,7 +240,7 @@ header h2 {
 #loginBox {
     background: white;
     height: 100%;
-    margin-top: 100%;
+    margin-top: 100vh;
     position: fixed;
     transition: .7s linear;
     width: 100%;
@@ -323,6 +323,7 @@ a .boxRegisterButton {
     left: 50%;
     margin-left: -156px;
     margin-top: 1em;
+    padding-bottom: 0;
     position: relative;
 }
 
@@ -332,14 +333,15 @@ a .boxRegisterButton {
     height: auto;
     left: 50%;
     margin-left: -200px;
-    margin-top: -260px;
     padding: 20px;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 80px;
     width: 400px;
+    margin-bottom: 20px;
 }
 
 .registerButton {
     margin-top: 1em;
-    float: right;
+    position: relative;
+    left: 260px;
 }

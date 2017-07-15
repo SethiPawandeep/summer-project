@@ -98,7 +98,7 @@
                 DOM.loginBox.css('margin-top', 0);
             },
             closeBox: function (event) {
-                DOM.loginBox.css('margin-top', '100%');
+                DOM.loginBox.css('margin-top', '100vh');
             },
             submitUpdateForm: function (event) {
                 $.ajax({
