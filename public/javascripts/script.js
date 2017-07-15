@@ -110,8 +110,7 @@
                         designation: $('#designation').val()
                     },
                     success: function (responseData, status, xhr) {
-                        if (responseData.a == true)
-                            window.location.replace('http://localhost:3000');
+                        if (responseData.a == true) window.location('admin');
                     },
                     error: function (res, status, xhr) {
                         alert('Update Failed');
@@ -120,7 +119,6 @@
                 return false;
             },
             showMap: function (event) {
-                /*https://maps.googleapis.com/maps/api/geocode/json?address=Shastri%20Park,%20New%20Delhi&key=AIzaSyBdExNx7DlcAvqDz7c3-UtABFC0Nv6RWN8*/
                 var address = DOM.address.val();
                 var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBdExNx7DlcAvqDz7c3-UtABFC0Nv6RWN8";
                 $.ajax({

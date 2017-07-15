@@ -60,9 +60,7 @@ exports.loginPOST = function (req, res) {
     var user = req.body;
     console.log('Login post');
     console.log(user);
-//    'SELECT * FROM nicuser WHERE empid=$1', [user.empName]
-    console.log('SELECT * FROM nicuser WHERE empid=' + user.empName);
-    db.one('SELECT * FROM nicuser WHERE empid=' + user.empName).then(function (data) {
+    db.one('SELECT * FROM nicuser WHERE empid=$1', [user.empName]).then(function (data) {
         bcrypt.compare(user.password, data.password, function (err, passMatch) {
             if (err) {
                 console.log('Credentials do not match.');
