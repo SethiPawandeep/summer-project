@@ -5,8 +5,8 @@
 
 * {
     box-sizing: border-box;
-        font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-/*    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+/*    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;*/
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
