@@ -15,6 +15,7 @@ var logout = require('./routes/auth/logout');
 var admin = require('./routes/admin/index');
 var profile = require('./routes/profile');
 var createCenter = require('./routes/admin/create');
+var location = require('./routes/admin/location');
 var app = express();
 
 // view engine setup
@@ -43,6 +44,7 @@ app.use('/logout', logout);
 app.use('/admin', admin);
 app.use('/profile', profile);
 app.use('/create', createCenter);
+app.use('/location', location)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

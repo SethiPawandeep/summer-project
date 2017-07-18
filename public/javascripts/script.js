@@ -18,7 +18,8 @@
             captcha: $('.g-recaptcha'),
             updateForm: $('.welcome form'),
             address: $('#address'),
-            create: $('.create form')
+            create: $('.create form'),
+            success: $('.success')
         },
         Functions = {
             checkClick: function (event) {
@@ -110,7 +111,11 @@
                         designation: $('#designation').val()
                     },
                     success: function (responseData, status, xhr) {
-                        if (responseData.a == true) window.location('admin');
+                        if (responseData.a === true) {
+                            DOM.success.css('visibility', 'visible');
+                            DOM.success.css('position', 'static');
+                            DOM.errorMessage.html('Designation updated successfully');
+                        }
                     },
                     error: function (res, status, xhr) {
                         alert('Update Failed');
@@ -158,16 +163,28 @@
         Variables = {
             formCorrect: false,
             hiddenDesignation: $('.hiddenDesignation').val() || 'Scientist A'
+            //            data: !{data}
         };
 
     $(document).ready(function () {
         DOM.empId.kendoMaskedTextBox({
             mask: '0000'
         });
+        //        console.log(Variables.data);
         DOM.body.on('click', Functions.checkClick);
         DOM.closeButton.on('click', Functions.closeNav);
         DOM.designationList.kendoDropDownList({
             value: Variables.hiddenDesignation
+        });
+        $('#location').kendoDropDownList({
+            dataTextField: 'address',
+            dataValueField: 'id',
+            dataSource: {
+                type: 'json',
+                transport: {
+                    read: 'http://localhost:3000/location/fetch'
+                }
+            }
         });
         DOM.navIcon.on('click', Functions.openNav);
         DOM.loginButton.on('click', Functions.showBox);
