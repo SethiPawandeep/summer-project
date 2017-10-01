@@ -7,3 +7,6 @@ recaptcha.js
 
 #sessions
 config.js
+
+#Database Connect
+dbConnect.js

@@ -6,6 +6,7 @@
             confirmPassword: $('#confirmPassword'),
             designationList: $('#designation'),
             empId: $('#empId'),
+            empName: $('#empName'),
             errorBox: $('.error'),
             errorMessage: $('.errorMessage'),
             loginBox: $('#loginBox'),
@@ -86,7 +87,6 @@
                             DOM.errorMessage.html('User with Employee ID already exists.');
                             return false;
                         } else {
-                            console.log('yahaan aa gaye');
                             window.location.replace('http://localhost:3000');
                         }
                     }, 'json');
@@ -97,6 +97,7 @@
             },
             showBox: function (event) {
                 DOM.loginBox.css('margin-top', 0);
+                DOM.empName.focus();
             },
             closeBox: function (event) {
                 DOM.loginBox.css('margin-top', '100vh');
