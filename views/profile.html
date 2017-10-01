@@ -5,15 +5,12 @@
     <title>Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-
     <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
@@ -21,7 +18,6 @@
     <header>
         <span class="navIcon">&#9776;</span>
         <h2>NIC | Night Duty</h2>
-
         <div class="navbar">
             <div>
                 <h2>NIC</h2>
@@ -34,8 +30,7 @@
             </ul>
         </div>
     </header>
-    <div class="welcome">
-
+    <div class="welcome registerForm">
         <div class="success">
             <div class="checkmark">
                 <div class="checkmark_circle"></div>
@@ -53,6 +48,10 @@
                     <input class="textBox k-textbox" id="empName" type="text" value="<%= name %>" name="empName" required disabled>
                 </li>
                 <li>
+                    <label for="username">Username</label>
+                    <input class="textBox k-textbox" id="username" type="text" placeholder="<%= username %>" name="username" pattern=".*[^ ].*" required>
+                </li>
+                <li>
                     <input class="hiddenDesignation" value="<%= designation %>" hidden>
                     <label for="designation">Designation</label>
                     <select class="selectClass" id="designation" name="designation">
@@ -68,7 +67,6 @@
             </ul>
         </form>
     </div>
-
     <script type="text/javascript" src="javascripts/script.js"></script>
 </body>
 

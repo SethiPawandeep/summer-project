@@ -109,13 +109,14 @@
                     data: {
                         name: $('#empName').val(),
                         empId: $('#empId').val(),
-                        designation: $('#designation').val()
+                        designation: $('#designation').val(),
+                        username: $('#username').val()
                     },
                     success: function (responseData, status, xhr) {
-                        if (responseData.a === true) {
+                        if (responseData.a === 1 || responseData.a === 2) {
                             DOM.success.css('visibility', 'visible');
                             DOM.success.css('position', 'static');
-                            DOM.errorMessage.html('Designation updated successfully');
+                            DOM.errorMessage.html('Updated successfully');
                         }
                     },
                     error: function (res, status, xhr) {

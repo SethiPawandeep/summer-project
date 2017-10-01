@@ -8,7 +8,8 @@ function checkLogin(req, res, next) {
         res.render('profile', {
             name: req.session.empName,
             empId: req.session.empId,
-            designation: req.session.designation
+            designation: req.session.designation,
+            username: req.session.username
         });
     } else {
         next();

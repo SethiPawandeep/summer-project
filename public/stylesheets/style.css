@@ -400,6 +400,10 @@ a .boxRegisterButton {
     margin-bottom: 20px;
 }
 
+.profile .registerForm {
+    top: 20px;
+}
+
 .registerButton {
     margin-top: 1em;
     position: relative;

@@ -4,7 +4,7 @@ var request = require('request');
 
 var recaptchaCredentials = require('../recaptcha.js');
 
-exports.registerPOST = function (req, res) {
+exports.registerPOST = function(req, res) {
     console.log('registerPOST');
     console.log(req.body);
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
@@ -16,7 +16,7 @@ exports.registerPOST = function (req, res) {
         var key = recaptchaCredentials.key;
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + key + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
-        request(verificationUrl, function (error, response, body) {
+        request(verificationUrl, function(error, response, body) {
             body = JSON.parse(body);
             console.log('\n\n\nafter req\n\n\n');
             console.log(body);
@@ -29,17 +29,17 @@ exports.registerPOST = function (req, res) {
             } else {
                 console.log(req.body);
                 var user = req.body;
-                bcrypt.genSalt(10, function (err, salt) {
-                    bcrypt.hash(user.password, salt, function (err, hash) {
+                bcrypt.genSalt(10, function(err, salt) {
+                    bcrypt.hash(user.password, salt, function(err, hash) {
                         console.log(hash);
-                        db.any('INSERT INTO nicuser (empId, name, designation, password) values($1, $2, $3, $4)', [user.empId, user.empName, user.designation, hash]).then(function (data) {
+                        db.any('INSERT INTO nicuser (empId, name, designation, password) values($1, $2, $3, $4)', [user.empId, user.empName, user.designation, hash]).then(function(data) {
                             console.log('Query successful');
                             console.log(data);
                             res.json({
                                 'responseCode': 200,
                                 'responseDesc': 'Successfully Submitted'
                             });
-                        }, function (err) {
+                        }, function(err) {
                             console.log('Error: ');
                             console.log(err);
                             if (err.code == '23505') {
@@ -56,22 +56,28 @@ exports.registerPOST = function (req, res) {
     }
 };
 
-exports.loginPOST = function (req, res) {
+exports.loginPOST = function(req, res) {
     var user = req.body;
     console.log('Login post');
     console.log(user);
-    db.one('SELECT * FROM nicuser WHERE empid=$1', [user.empName]).then(function (data) {
-        bcrypt.compare(user.password, data.password, function (err, passMatch) {
+    db.one('SELECT * FROM nicuser WHERE empid=$1', [user.empName]).then(function(data) {
+        bcrypt.compare(user.password, data.password, function(err, passMatch) {
             if (err) {
                 console.log('Credentials do not match.');
                 res.render('login');
             }
             if (passMatch === true) {
+                console.log(data);
                 console.log('Credentials match');
                 req.session.empId = data.empid;
                 req.session.empName = data.name;
                 req.session.designation = data.designation;
                 req.session.cookie.maxAge = 24 * 60 * 60 * 1000 * 365;
+                if (data.username === null) {
+                    req.session.username = 'Username not set.';
+                } else {
+                    req.session.username = data.username;
+                }
                 console.log(req.session);
                 console.log(req.session.cookie);
                 if (data.empid == '1997') {
@@ -89,7 +95,7 @@ exports.loginPOST = function (req, res) {
                 res.render('login');
             }
         });
-    }, function (err) {
+    }, function(err) {
         console.log('Error: ');
         console.log(err);
         res.render('login');
