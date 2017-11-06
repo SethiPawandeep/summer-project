@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var login = require('./routes/auth/login');
 var logout = require('./routes/auth/logout');
 var admin = require('./routes/admin/index');
+var user = require('./routes/user/index');
 var profile = require('./routes/profile');
 var createCenter = require('./routes/admin/create');
 var location = require('./routes/admin/location');
@@ -42,6 +43,7 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/admin', admin);
+app.use('/user', user)
 app.use('/profile', profile);
 app.use('/create', createCenter);
 app.use('/location', location)

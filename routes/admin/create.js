@@ -4,8 +4,8 @@ var router = express.Router();
 var createController = require('../../controllers/createController');
 
 function checkLogin(req, res, next) {
-    if (req.session && req.session.empId) {
-        res.render('adminPanel/create');
+	if(req.session && req.session.isAdmin) {
+	        res.render('adminPanel/create');
     } else {
         next();
     }

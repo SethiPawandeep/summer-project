@@ -4,8 +4,7 @@ var router = express.Router();
 var fetch = require('../../controllers/fetchCentresController');
 
 function checkLogin(req, res, next) {
-    console.log(req.session);
-    if(req.session && req.session.empId) {
+    if(req.session && req.session.isAdmin) {
         res.render('adminPanel/location');
     } else {
         next();

@@ -6,9 +6,8 @@ function checkLogin(req, res, next) {
         if (req.session.isAdmin) {
             res.redirect('/admin');
         } else {
-            res.render('index', {
-                name: req.session.empName
-            });
+            console.log('Redirecting to user route');
+            res.redirect('/user');
         }
     } else {
         next();
