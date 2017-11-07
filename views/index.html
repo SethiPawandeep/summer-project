@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>NIC Night Duty</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -17,9 +17,30 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
-<body>
-<h2>Welcome <%= name %></h2>
-    <a href="/logout">Logout</a>
+<body class="adminHome">
+    <header>
+        <span class="navIcon">&#9776;</span>
+        <h2>NIC | Night Duty</h2>
+
+        <div class="navbar">
+            <div>
+                <h2>NIC</h2>
+            </div>
+            <span class="closeButton">&times;</span>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="welcome">
+        <img src="images/boss.png">
+        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
+    </div>
+    <div class="main">
+
+    </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
 </body>
 
