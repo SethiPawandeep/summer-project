@@ -2,10 +2,10 @@ var pgp = require('pg-promise')({});
 
 var credentials = {
     host: 'localhost',
-    port: 5000,
-    database: 'NIC_db',
-    user: 'postgres',
-    password: 'ips'
+    port: 5432,
+    database: 'nic',
+    user: 'pd',
+    password: 'pawan123'
 };
 
 var db = pgp(credentials);

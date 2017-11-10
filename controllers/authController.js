@@ -67,6 +67,7 @@ exports.loginPOST = function(req, res) {
                 res.render('login');
             }
             if (passMatch === true) {
+                db.one('SELECT * FROM imageexists WHERE empid=$1', [user.empName])
                 console.log(data);
                 console.log('Credentials match');
                 req.session.empId = data.empid;
