@@ -7,9 +7,11 @@ function checkLogin(req, res, next) {
             res.redirect('/admin');
         } else {
             console.log('Reached here');
+            console.log(req.session.image);
             res.render('index', {
                 name: req.session.empName,
-                designation: req.session.designation
+                designation: req.session.designation,
+                image: req.session.image
             });
         }
     } else {

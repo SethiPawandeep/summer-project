@@ -10,3 +10,6 @@ config.js
 
 #Database Connect
 dbConnect.js
+
+#Uploads
+uploads
