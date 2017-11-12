@@ -4,7 +4,8 @@ var formidable = require('formidable');
 var fs = require('fs');
 // var db = require('../dbConnect')
 router.get('/', function(req, res) {
-	res.redirect('/click');
+	// res.redirect('/click');
+	res.render('upload');
 });
 
 router.post('/', function(req, res) {

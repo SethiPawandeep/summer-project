@@ -35,7 +35,7 @@
         </div>
     </header>
     <div class="welcome">
-        <h2 style="text-align: center">Just one last step.</h1>
+        <h2 style="text-align: center">Just one last step.</h2>
         <div class="camera" style="position: relative; left: 50%; margin-left: -150px">
             <video id="video">Video stream not available.</video>
             <br>
@@ -45,12 +45,12 @@
         <canvas id="canvas">
         </canvas>
         <div class="output">
-            <img id="photo" alt="The screen capture will appear in this box."> 
+            <!-- <img id="photo" alt="The screen capture will appear in this box.">  -->
         </div>
     </div>
-    <div class="main">
+   <!--  <div class="main">
         <a href="/click" class="k-button k-primary">Take a picture</a>
-    </div>
+    </div> -->
     <script type="text/javascript" src="javascripts/script.js"></script>
     <script type="text/javascript">
         (function($) {
@@ -160,7 +160,7 @@
 
       $.ajax({
         type: 'post',
-        url: '/upload',
+        url: '/click',
         data:  {
             d: data
         },
@@ -169,7 +169,7 @@
             alert(res.a);
         },
         error: function(res,status, xhr) {
-            alert('nhi hua');
+            alert('Failed uploading image.');
         }
       });
       photo.setAttribute('src', data);

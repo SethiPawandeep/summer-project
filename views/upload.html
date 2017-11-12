@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Camera</title>
-	<style type="text/css">
+   <title>NIC Night Duty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+
+    	<style type="text/css">
 		#video {
   border: 1px solid black;
   box-shadow: 2px 2px 3px black;
@@ -51,10 +55,36 @@
   width: 760px;
 }
 	</style>
+      <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 </head>
 <body>
-	
+	    <header>
+        <span class="navIcon">&#9776;</span>
+        <h2>NIC | Night Duty</h2>
+
+        <div class="navbar">
+            <div>
+                <h2>NIC</h2>
+            </div>
+            <span class="closeButton">&times;</span>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <div style="position: relative; top: 100px; left: 20%;">
+
   <div class="camera">
     <video id="video">Video stream not available.</video>
     <button id="startbutton">Take photo</button> 
@@ -64,12 +94,14 @@
   <div class="output">
     <img id="photo" alt="The screen capture will appear in this box."> 
   </div>
+  </div>
  <!--  <form action="/upload" method="post" accept="image/jpeg, image/png" enctype="multipart/formdata">
   	<input type="file" name="d">
   	<input type="submit">
   </form> -->
-  <p></p>
+  <!-- <p></p> -->
 
+    <script type="text/javascript" src="javascripts/script.js"></script>
 
 <script type="text/javascript">
 	(function($) {
@@ -184,15 +216,14 @@
       		d: data
       	},
       	success: function(res, status,  xhr) {
-      		alert('hogya');
-      		alert(res.a);
+      		alert('Image  uploaded succesfully');
       	},
       	error: function(res,status, xhr) {
       		alert('nhi hua');
       	}
       });
 
-      document.querySelector('p').innerHTML = data;
+      // document.querySelector('p').innerHTML = data;
       photo.setAttribute('src', data);
     } else {
       clearphoto();

@@ -19,10 +19,8 @@ exports.registerPOST = function(req, res) {
 
         request(verificationUrl, function(error, response, body) {
             body = JSON.parse(body);
-            console.log('\n\n\nafter req\n\n\n');
             console.log(body);
             if (body.success !== undefined && !body.success) {
-                console.log('if');
                 return res.json({
                     'responseCode': 2,
                     'responseDesc': 'Failed captcha verification'

@@ -18,7 +18,7 @@ var createCenter = require('./routes/admin/create');
 var location = require('./routes/admin/location');
 var click = require('./routes/click');
 var upload = require('./routes/upload');
-var showImage = require('./routes/showImage');
+// var showImage = require('./routes/showImage');
 var app = express();
 
 // view engine setup
@@ -53,7 +53,7 @@ app.use('/create', createCenter);
 app.use('/location', location);
 app.use('/click',  click);
 app.use('/upload',upload);
-app.use('/showImage', showImage);
+// app.use('/showImage', showImage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
