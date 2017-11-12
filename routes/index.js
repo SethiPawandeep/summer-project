@@ -3,6 +3,9 @@ var router = express.Router();
 
 function checkLogin(req, res, next) {
     if (req.session && req.session.empId) {
+        if(!req.session.image) {
+            res.redirect('/click');
+        }
         if (req.session.isAdmin) {
             res.redirect('/admin');
         } else {

@@ -35,7 +35,18 @@ exports.registerPOST = function(req, res) {
                         console.log(hash);
                         db.any('INSERT INTO nicuser (empId, name, designation, password) values($1, $2, $3, $4)', [user.empId, user.empName, user.designation, hash]).then(function(data) {
                             console.log('Query successful');
-                            console.log(data);
+                            // setUser(req, res, data);
+                            req.session.empId = user.empId;
+                            req.session.empName = user.empName;
+                            req.session.designation = user.designation;
+                            req.session.cookie.maxAge = 24 * 60 * 60 * 1000 * 365;
+                            req.session.username = 'Username not set.';
+                            if(data.empid == '1997') {
+                                req.session.isAdmin = true;
+                            } else {
+                                req.session.isAdmin = false;
+                            }
+                            console.log(req.session);
                             res.json({
                                 'responseCode': 200,
                                 'responseDesc': 'Successfully Submitted'
@@ -71,7 +82,7 @@ function assignImage(req, fileName) {
 }
 
 function setUser(req, res, data) {
-                        req.session.empId = data.empid;
+                    req.session.empId = data.empid;
                     req.session.empName = data.name;
                     req.session.designation = data.designation;
                     req.session.cookie.maxAge = 24 * 60 * 60 * 1000 * 365;
@@ -82,7 +93,7 @@ function setUser(req, res, data) {
                     }
                     console.log(req.session);
                     console.log(req.session.cookie);
-                        console.log(req.session.image);
+                    console.log(req.session.image);
 
                     if (data.empid == '1997') {
                         console.log('true');

@@ -1,59 +1,78 @@
-<!DOCtype html>
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>NIC Night Duty</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width">
+	<title>Camera</title>
+	<style type="text/css">
+		#video {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width:320px;
+  height:240px;
+}
 
-    <link rel="stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
-    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
-    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
-    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+#photo {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width:320px;
+  height:240px;
+}
 
+#canvas {
+  display:none;
+}
+
+.camera {
+  width: 340px;
+  display:inline-block;
+}
+
+.output {
+  width: 340px;
+  display:inline-block;
+}
+
+#startbutton {
+  display:block;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  bottom:32px;
+  background-color: rgba(0, 150, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  color: rgba(255, 255, 255, 1.0);
+}
+
+.contentarea {
+  font-size: 16px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  width: 760px;
+}
+	</style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
+<body>
+	
+  <div class="camera">
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton">Take photo</button> 
+  </div>
+  <canvas id="canvas">
+  </canvas>
+  <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box."> 
+  </div>
+ <!--  <form action="/upload" method="post" accept="image/jpeg, image/png" enctype="multipart/formdata">
+  	<input type="file" name="d">
+  	<input type="submit">
+  </form> -->
+  <p></p>
 
-<body class="adminHome">
-    <header>
-        <span class="navIcon">&#9776;</span>
-        <h2>NIC | Night Duty</h2>
 
-        <div class="navbar">
-            <div>
-                <h2>NIC</h2>
-            </div>
-            <span class="closeButton">&times;</span>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </div>
-    </header>
-    <div class="welcome">
-        <h2 style="text-align: center">Just one last step.</h1>
-        <div class="camera" style="position: relative; left: 50%; margin-left: -150px">
-            <video id="video">Video stream not available.</video>
-            <br>
-            <button class="k-button k-primary" id="startbutton">Click a picture</button> 
-            <br/><br/>
-        </div>
-        <canvas id="canvas">
-        </canvas>
-        <div class="output">
-            <img id="photo" alt="The screen capture will appear in this box."> 
-        </div>
-    </div>
-    <div class="main">
-        <a href="/click" class="k-button k-primary">Take a picture</a>
-    </div>
-    <script type="text/javascript" src="javascripts/script.js"></script>
-    <script type="text/javascript">
-        (function($) {
+<script type="text/javascript">
+	(function($) {
   // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
@@ -159,19 +178,21 @@
       var data = canvas.toDataURL('image/png');
 
       $.ajax({
-        type: 'post',
-        url: '/upload',
-        data:  {
-            d: data
-        },
-        success: function(res, status,  xhr) {
-            alert('hogya');
-            alert(res.a);
-        },
-        error: function(res,status, xhr) {
-            alert('nhi hua');
-        }
+      	type: 'post',
+      	url: '/upload',
+      	data:  {
+      		d: data
+      	},
+      	success: function(res, status,  xhr) {
+      		alert('hogya');
+      		alert(res.a);
+      	},
+      	error: function(res,status, xhr) {
+      		alert('nhi hua');
+      	}
       });
+
+      document.querySelector('p').innerHTML = data;
       photo.setAttribute('src', data);
     } else {
       clearphoto();
@@ -182,7 +203,7 @@
   // once loading is complete.
   window.addEventListener('load', startup, false);
 })(jQuery);
-    </script>
-</body>
 
+</script>
+</body>
 </html>

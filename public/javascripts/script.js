@@ -87,7 +87,8 @@
                             DOM.errorMessage.html('User with Employee ID already exists.');
                             return false;
                         } else {
-                            window.location.replace('http://localhost:3000');
+                            // window.location.replace('http://localhost:3000');
+                            $(location).attr('href', 'http://localhost:3000');
                         }
                     }, 'json');
                 } else {
