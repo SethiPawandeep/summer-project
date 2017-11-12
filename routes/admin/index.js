@@ -8,7 +8,8 @@ function checkLogin(req, res, next) {
         } else {
             res.render('adminPanel/index', {
                 name: req.session.empName,
-                designation: req.session.designation
+                designation: req.session.designation,
+                image: req.session.image
             });
         }
     } else {

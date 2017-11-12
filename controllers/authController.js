@@ -39,7 +39,7 @@ exports.registerPOST = function(req, res) {
                             req.session.designation = user.designation;
                             req.session.cookie.maxAge = 24 * 60 * 60 * 1000 * 365;
                             req.session.username = 'Username not set.';
-                            if(data.empid == '1997') {
+                            if(user.empId == '1997') {
                                 req.session.isAdmin = true;
                             } else {
                                 req.session.isAdmin = false;
@@ -92,16 +92,6 @@ function setUser(req, res, data) {
                     console.log(req.session);
                     console.log(req.session.cookie);
                     console.log(req.session.image);
-
-                    if (data.empid == '1997') {
-                        console.log('true');
-                        req.session.isAdmin = true;
-                        res.redirect('/admin');
-                    } else {
-                        console.log('false');
-                        req.session.isAdmin = false;
-                        res.redirect('/');
-                    }
 }
 
 exports.loginPOST = function(req, res) {
@@ -126,13 +116,31 @@ exports.loginPOST = function(req, res) {
                         var fileName = user.empName;
                         assignImage(req, fileName);
                     } else {
-                        assignImage(req);
+                        // assignImage(req);
+                        res.redirect('/upload');
                     }
                     setUser(req, res, data);
+                    if (data.empid == '1997') {
+                        console.log('true');
+                        req.session.isAdmin = true;
+                        res.redirect('/admin');
+                    } else {
+                        console.log('false');
+                        req.session.isAdmin = false;
+                        res.redirect('/');
+                    }
                 }, function(err) {
                     console.log('Error: ', err);
-                    assignImage(req);
                     setUser(req, res,  data);
+                    if (data.empid == '1997') {
+                        console.log('true');
+                        req.session.isAdmin = true;
+                    } else {
+                        console.log('false');
+                        req.session.isAdmin = false;
+                    }
+                    res.redirect('/upload');
+                    assignImage(req);
                 });
 
             } else {

@@ -64,7 +64,6 @@
     <script type="text/javascript" src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 </head>
 <body>
 	    <header>
@@ -84,7 +83,7 @@
         </div>
     </header>
     <div style="position: relative; top: 100px; left: 20%;">
-
+    <h1>Just one last step. Click your picture and upload.</h1>
   <div class="camera">
     <video id="video">Video stream not available.</video>
     <button id="startbutton">Take photo</button> 
@@ -217,6 +216,7 @@
       	},
       	success: function(res, status,  xhr) {
       		alert('Image  uploaded succesfully');
+          $(location).attr('href', 'http://localhost:3000/upload/db');
       	},
       	error: function(res,status, xhr) {
       		alert('nhi hua');
