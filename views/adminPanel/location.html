@@ -34,10 +34,28 @@
             </ul>
         </div>
     </header>
+       <div class="create">
+        <div class="error"><span class="exclamation">!</span><span class="errorMessage"></span></div>
+        <form action="/create" method="post">
+            <ul>
+                <li>
+                    <label for="address">Address</label>
+                    <select class="selectClass" id="location" name="location"></select>
+                </li>
+                <li>
+                    <label for="">Locations</label>
+                    <textarea class="textBox k-textbox" name="address" id="address" placeholder="Enter list of comma separated places (max 5)"></textarea>
+                </li>
+                <li>
+                    <button class="k-button k-primary registerButton">Register</button>
+                </li>
+            </ul>
+        </form>
+    </div>
     <div class="addLocation" style="margin-top: 100px">
-        <form>
-            <select class="selectClass" id="location" name="location">
-        </select>
+        <form style="position: relative; left: 50%; margin-left: -20vw;">
+            <br><br>
+            <!-- <a href="#" class="k-primary k-button">Add locations(max 5)</a> -->
         </form>
     </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
