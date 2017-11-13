@@ -10,13 +10,14 @@ var config = require('./config');
 
 var index = require('./routes/index');
 var register = require('./routes/register');
+var upload = require('./routes/upload');
+var profile = require('./routes/profile');
 var login = require('./routes/auth/login');
 var logout = require('./routes/auth/logout');
 var admin = require('./routes/admin/index');
-var profile = require('./routes/profile');
 var createCenter = require('./routes/admin/create');
 var location = require('./routes/admin/location');
-var upload = require('./routes/upload');
+var schedule = require('./routes/admin/schedule');
 var app = express();
 
 // view engine setup
@@ -49,7 +50,8 @@ app.use('/admin', admin);
 app.use('/profile', profile);
 app.use('/create', createCenter);
 app.use('/location', location);
-app.use('/upload',upload);
+app.use('/upload', upload);
+app.use('/schedule', schedule);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

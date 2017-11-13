@@ -189,6 +189,16 @@
                 }
             }
         });
+        $('#emplist').kendoDropDownList({
+            dataTextField: 'name',
+            dataValueField: 'empid',
+            dataSource: {
+                type: 'json',
+                transport: {
+                    read: 'http://localhost:3000/schedule/emplist'
+                }
+            }
+        });
         DOM.navIcon.on('click', Functions.openNav);
         DOM.loginButton.on('click', Functions.showBox);
         DOM.loginBoxClose.on('click', Functions.closeBox);

@@ -34,16 +34,36 @@
             </ul>
         </div>
     </header>
-    <div class="welcome">
-        <img src="<%= image %>">
-        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
+       <div class="location">
+        <div class="error"><span class="exclamation">!</span><span class="errorMessage"></span></div>
+        <form action="/schedule" method="post">
+            <ul>
+                <li>
+                    <label for="address">Employees</label>
+                    <select class="selectClass" id="emplist" name="name"></select>
+                </li>
+                <li>
+                    <label for="address">Address</label>
+                    <select class="selectClass" id="location" name="address"></select>
+                </li>
+                <li>
+                    <label for="date">Date and time (8 hours duty)</label>
+                    <input class="textBox k-textbox" type="datetime-local" name="date">
+                </li>
+                <li>
+                    <button class="k-button k-primary registerButton">Schedule</button>
+                </li>
+            </ul>
+        </form>
     </div>
-    <div class="main">
-        <a href="/create" class="k-button k-primary">Create Center</a>
-        <a href="/location" class="k-button k-primary">Location for verification</a>
-        <a href="/schedule" class="k-button k-primary">Schedule employee duty</a>
+    <div class="addLocation" style="margin-top: 100px">
+        <form style="position: relative; left: 50%; margin-left: -20vw;">
+            <br><br>
+            <!-- <a href="#" class="k-primary k-button">Add locations(max 5)</a> -->
+        </form>
     </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw39TMCLBtAlMEei3NQNTv1PPRM5LKIIA"></script>
 </body>
 
 </html>
