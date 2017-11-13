@@ -3,7 +3,22 @@ var router = express.Router();
 var db = require('../../dbConnect');
 
 router.get('/', function(req, res) {
-	res.render('adminPanel/schedule');
+	if(req.session && req.session.isAdmin) {
+		res.render('adminPanel/schedule');
+	} else {
+		res.redirect('/');
+	}
+});
+
+router.post('/', function(req, res){
+	console.log(req.body);
+	db.any('INSERT INTO duties values($1, $2, $3)', [req.body.name, req.body.address, req.body.date]).then(function(data) {
+		console.log('Query Successful');
+		res.redirect('/');
+	}, function(err) {
+		console.log('Error: ', err);
+		res.redirect('/');
+	});
 });
 
 router.get('/emplist', function(req, res) {

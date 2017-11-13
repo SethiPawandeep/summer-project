@@ -199,6 +199,16 @@
                 }
             }
         });
+        $('#dutyList').kendoDropDownList({
+            dataTextField: 'address',
+            dataValueField: 'address',
+            dataSource: {
+                type: 'json',
+                transport: {
+                    read: 'http://localhost:3000/duty/fetch'
+                }
+            }
+        });
         DOM.navIcon.on('click', Functions.openNav);
         DOM.loginButton.on('click', Functions.showBox);
         DOM.loginBoxClose.on('click', Functions.closeBox);

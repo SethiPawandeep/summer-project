@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NIC Night Duty</title>
+    <title>Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -28,20 +28,34 @@
             </div>
             <span class="closeButton">&times;</span>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="/admin">Home</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
     </header>
-    <div class="welcome">
-        <img src="<%= image %>">
-        <h3>Welcome <%= name %>, <span class="designation"><%= designation %></span></h3>
+       <div class="location">
+        <div class="error"><span class="exclamation">!</span><span class="errorMessage"></span></div>
+        <form action="/perform" method="post">
+            <ul>
+                <li>
+                    <label for="place">Duties</label>
+                    <select class="selectClass" id="dutyList" name="address"></select>
+                </li>
+                <li>
+                    <button class="k-button k-primary registerButton">Perform</button>
+                </li>
+            </ul>
+        </form>
     </div>
-    <div class="main">
-        <a href="/duty" class="k-button k-primary">View scheduled duties</a>
+    <div class="addLocation" style="margin-top: 100px">
+        <form style="position: relative; left: 50%; margin-left: -20vw;">
+            <br><br>
+            <!-- <a href="#" class="k-primary k-button">Add locations(max 5)</a> -->
+        </form>
     </div>
     <script type="text/javascript" src="javascripts/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw39TMCLBtAlMEei3NQNTv1PPRM5LKIIA"></script>
 </body>
 
 </html>
