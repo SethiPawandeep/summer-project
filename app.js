@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var upload = require('./routes/upload');
 var profile = require('./routes/profile');
 var duty = require('./routes/duty');
+var perform = require('./routes/perform');
 var login = require('./routes/auth/login');
 var logout = require('./routes/auth/logout');
 var admin = require('./routes/admin/index');
@@ -54,6 +55,7 @@ app.use('/location', location);
 app.use('/upload', upload);
 app.use('/schedule', schedule);
 app.use('/duty', duty);
+app.use('/perform', perform);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
